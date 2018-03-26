@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.managerlee.assessment.index.viewModel.IndexViewModel" />
+
+        <variable
+            name="viewModel"
+            type="IndexViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/framelayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height90"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/footer_bg"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/ll_article"
+                android:onClick="@{viewModel.gotoPageForArticle}"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height70"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/width24"
+                    android:layout_height="@dimen/height24"
+                    android:background="@drawable/article_uncheck" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/article" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_task"
+                android:onClick="@{viewModel.gotoPageForTask}"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/top5"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/width40"
+                    android:layout_height="@dimen/height40"
+                    android:background="@drawable/task" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/top5"
+                    android:text="@string/task"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/textSize18" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_site"
+                android:onClick="@{viewModel.gotoPageForSite}"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height70"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/width24"
+                    android:layout_height="@dimen/height24"
+                    android:background="@drawable/site_uncheck" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/site" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</layout>

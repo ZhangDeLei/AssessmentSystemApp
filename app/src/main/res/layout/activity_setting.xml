@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.managerlee.assessment.setting.viewModel.SettingViewModel" />
+
+        <variable
+            name="viewModel"
+            type="SettingViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height50"
+            android:background="@drawable/title_bg"
+            android:gravity="center|left">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/left" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="设置"
+                android:textColor="@color/colorTitleText"
+                android:textSize="@dimen/textSize18"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

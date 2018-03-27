@@ -3,11 +3,11 @@
 
     <data>
 
-        <import type="com.managerlee.assessment.index.viewModel.IndexViewModel" />
+        <import type="com.managerlee.assessment.viewModel.IndexViewModel" />
 
         <variable
             name="viewModel"
-            type="IndexViewModel" />
+            type="com.managerlee.assessment.viewModel.IndexViewModel" />
     </data>
 
     <RelativeLayout

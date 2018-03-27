@@ -26,6 +26,4 @@ public class SystemUtils {
         return versionCode;
     }
 
-
-
 }

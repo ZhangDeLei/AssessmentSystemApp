@@ -1,7 +1,8 @@
 package com.managerlee.assessment.framework.http;
 
 import com.managerlee.assessment.constant.URLConstant;
-import com.managerlee.assessment.update.service.UpdateService;
+import com.managerlee.assessment.framework.preference.PerferenceConfig;
+import com.managerlee.assessment.framework.utils.StringUtil;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -39,14 +40,16 @@ public class RetrofitHelper {
                     @Override
                     public Response intercept(Chain chain) throws IOException {
                         Request req = chain.request();
-                        Request request = req.newBuilder()
+                        Request.Builder builder = req.newBuilder()
                                 .header("Content-Type", "application/json;charset=UTF-8")
                                 .header("Access-Control-Allow-Origin", "*")
                                 .header("Access-Control-Allow-Methods", "POST,GET,OPTIONS,DELETE,PUT")
                                 .header("Access-Control-Allow-Headers", "Content-Type,Authorization,version")
-                                .header("version", "1")
-                                .build();
-                        return chain.proceed(request);
+                                .header("version", "1");
+                        if (StringUtil.isNotNull(PerferenceConfig.TOKEN.get())) {
+                            builder.header("Authorization", PerferenceConfig.TOKEN.get());
+                        }
+                        return chain.proceed(builder.build());
                     }
                 })
                 .connectTimeout(TIMEOUT_DEFAULT, TimeUnit.SECONDS)

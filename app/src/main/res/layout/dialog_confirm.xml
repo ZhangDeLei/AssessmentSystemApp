@@ -11,22 +11,22 @@
         android:gravity="center">
 
         <TextView
+            android:id="@+id/dialog_tv_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="111"
             android:textColor="@color/colorTitleText"
             android:textSize="@dimen/textSize18"
             android:textStyle="bold" />
 
         <ImageButton
+            android:id="@+id/dialog_ib_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
             android:layout_marginRight="@dimen/top10"
             android:background="@android:color/transparent"
-            android:onClick="@{viewModel.close}"
             android:src="@drawable/close" />
     </RelativeLayout>
 
@@ -36,11 +36,11 @@
         android:background="@color/gray" />
 
     <TextView
+        android:id="@+id/dialog_tv_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="2222"
         android:textColor="@color/colorTitleText"
         android:textSize="@dimen/textSize16" />
 
@@ -51,6 +51,7 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/dialog_btn_confirm"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height50"
             android:layout_marginLeft="@dimen/top40"

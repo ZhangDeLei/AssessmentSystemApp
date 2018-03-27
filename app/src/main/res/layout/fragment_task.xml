@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
-        <import type="com.managerlee.assessment.task.viewModel.TaskViewModel"/>
+
+        <import type="com.managerlee.assessment.viewModel.TaskViewModel" />
+
         <variable
             name="viewModel"
-            type="TaskViewModel"/>
+            type="TaskViewModel" />
     </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,12 +24,12 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:onClick="@{viewModel.gotoSetting}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/top20"
                 android:layout_marginRight="@dimen/top20"
                 android:background="@android:color/transparent"
+                android:onClick="@{viewModel.gotoSetting}"
                 android:src="@drawable/setting" />
 
             <EditText
@@ -40,76 +44,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:text="发布任务"
-                android:onClick="@{viewModel.gotoRelease}"/>
+                android:onClick="@{viewModel.gotoRelease}"
+                android:text="发布任务" />
         </LinearLayout>
 
-        <LinearLayout
-            android:onClick="@{viewModel.gotoDetail}"
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRegreshLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:orientation="horizontal"
-            android:padding="@dimen/top5">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="@dimen/width80"
-                android:layout_height="@dimen/height80"
-                android:background="@color/red"
-                android:gravity="center"
-                android:text="10"
-                android:textColor="@android:color/white" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/top5"
-                android:paddingRight="@dimen/top5">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    android:text="网易新闻：习近平：审核认识"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/textSize16"/>
-                <TextView
-                    android:layout_weight="1"
-                    android:gravity="center|left"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    android:text="评论"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/textSize16"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    android:text="2018-01-01 00:00:00"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/textSize16"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="@dimen/width80"
-                android:layout_height="@dimen/height80"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:text="已完成" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="right|bottom"
-                    android:text="网易新闻" />
-            </LinearLayout>
-        </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
     </LinearLayout>
 </layout>

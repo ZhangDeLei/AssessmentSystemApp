@@ -19,16 +19,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".login.LoginActivity" android:theme="@style/AppTheme"/>
-        <activity android:name=".index.IndexActivity" android:theme="@style/AppTheme"/>
-        <activity android:name=".article.ArticleSubmissionActivity" android:theme="@style/AppTheme"/>
-        <activity android:name=".article.ArticleSubmissionHisActivity" android:theme="@style/AppTheme"/>
-        <activity android:name=".article.SearchActivity" android:theme="@style/AppTheme"/>
-        <activity android:name=".setting.AccountBindActivity" android:theme="@style/AppTheme"/>
-        <activity android:name=".setting.SettingActivity" android:theme="@style/AppTheme"/>
-        <activity android:name=".task.TaskCommentActivity" android:theme="@style/AppTheme"/>
-        <activity android:name=".task.TaskDetailActivity" android:theme="@style/AppTheme"/>
-        <activity android:name=".task.TaskReleaseActivity" android:theme="@style/AppTheme"/>
+        <activity android:name=".view.LoginActivity" android:theme="@style/AppTheme"/>
+        <activity android:name=".view.IndexActivity" android:theme="@style/AppTheme"/>
+        <activity android:name=".view.ArticleSubmissionActivity" android:theme="@style/AppTheme"/>
+        <activity android:name=".view.ArticleSubmissionHisActivity" android:theme="@style/AppTheme"/>
+        <activity android:name=".view.SearchActivity" android:theme="@style/AppTheme"/>
+        <activity android:name=".view.AccountBindActivity" android:theme="@style/AppTheme"/>
+        <activity android:name=".view.SettingActivity" android:theme="@style/AppTheme"/>
+        <activity android:name=".view.TaskCommentActivity" android:theme="@style/AppTheme"/>
+        <activity android:name=".view.TaskDetailActivity" android:theme="@style/AppTheme"/>
+        <activity android:name=".view.TaskReleaseActivity" android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

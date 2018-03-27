@@ -17,4 +17,11 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <style name="ProgressStyle" parent="android:Widget.ProgressBar.Large.Inverse">
+        <item name="android:maxWidth">50dip</item>
+        <item name="android:maxHeight">50dip</item>
+        <item name="android:indeterminateDrawable">@drawable/progress_drawable</item>
+        <item name="android:minWidth">50dip</item>
+        <item name="android:minHeight">50dip</item>
+    </style>
 </resources>

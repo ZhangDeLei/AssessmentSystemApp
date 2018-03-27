@@ -3,11 +3,11 @@
 
     <data>
 
-        <import type="com.managerlee.assessment.setting.viewModel.SettingViewModel" />
+        <import type="com.managerlee.assessment.viewModel.SettingViewModel" />
 
         <variable
             name="viewModel"
-            type="SettingViewModel" />
+            type="com.managerlee.assessment.viewModel.SettingViewModel" />
     </data>
 
     <LinearLayout

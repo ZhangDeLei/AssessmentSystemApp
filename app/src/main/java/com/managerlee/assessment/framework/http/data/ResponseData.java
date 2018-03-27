@@ -1,5 +1,7 @@
 package com.managerlee.assessment.framework.http.data;
 
+import io.reactivex.annotations.Nullable;
+
 /**
  * Created by anins on 2018/3/23.
  */
@@ -7,6 +9,8 @@ package com.managerlee.assessment.framework.http.data;
 public class ResponseData<T> {
     private int code;
     private String msg;
+
+    @Nullable
     private T data;
 
     public int getCode() {

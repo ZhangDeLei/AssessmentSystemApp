@@ -4,7 +4,7 @@ import android.databinding.DataBindingUtil;
 
 import com.managerlee.assessment.databinding.ActivityMainBinding;
 import com.managerlee.assessment.framework.base.BaseActivity;
-import com.managerlee.assessment.update.viewModel.UpdateViewModel;
+import com.managerlee.assessment.viewModel.UpdateViewModel;
 
 public class MainActivity extends BaseActivity {
     private ActivityMainBinding mBinding;

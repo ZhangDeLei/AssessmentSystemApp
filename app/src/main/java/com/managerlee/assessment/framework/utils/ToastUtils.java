@@ -3,6 +3,7 @@ package com.managerlee.assessment.framework.utils;
 import android.view.Gravity;
 import android.widget.Toast;
 
+import com.managerlee.assessment.R;
 import com.managerlee.assessment.framework.config.GlobalConfig;
 
 /**
@@ -23,7 +24,7 @@ public class ToastUtils {
             toast = Toast.makeText(GlobalConfig.getAppContext(), "", Toast.LENGTH_SHORT);
         }
         toast.setText(msg);
-        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.setGravity(Gravity.CENTER, 0, 400);
         toast.show();
     }
 

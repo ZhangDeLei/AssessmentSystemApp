@@ -9,11 +9,13 @@ public class URLConstant {
     public static final String GetNewVersion = "api/appManager/getAppByNewForAndroid"; //获取最新的版本信息
     public static final String Login_URL = "api/auth/login"; //登陆
 
+    //任务管理
     public static final String Task_GetTaskListByUserId = "api/task/getTaskListByUserId"; //根据用户ID获取任务列表
     public static final String Task_GetTaskById = "api/task/getTaskById";//根据ID获取任务信息
     public static final String Task_Delete = "api/task/delete";//删除任务
     public static final String Task_Update = "api/task/update";//更新任务
     public static final String Task_Insert = "api/task/insert";//新增任务
 
-
+    //新闻客户端管理
+    public static final String NewAuth_GetNewAuthListByCompanyId = "api/newAuth/getNewAuthListByCompanyId"; //获取企业新闻客户端列表
 }

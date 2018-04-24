@@ -1,21 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
-        <import type="com.managerlee.assessment.bean.NewBean"/>
+
+        <import type="com.managerlee.assessment.bean.NewBean" />
+
+        <import type="com.managerlee.assessment.adapter.SiteAdapter.ClickEvent" />
+
         <variable
             name="nb"
-            type="NewBean"/>
+            type="NewBean" />
+
+        <variable
+            name="baseUrl"
+            type="String" />
+
+        <variable
+            name="clickEvent"
+            type="ClickEvent" />
     </data>
-    <LinearLayout
+
+    <RelativeLayout
         android:id="@+id/itemSite"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="140dp"
+        android:gravity="center"
+        android:onClick="@{(view)->clickEvent.onClick(view,nb)}"
         android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/margin20"
+            app:imageUrl="@{nb.icon}" />
+
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:drawableTop="@drawable/weibo"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/margin20"
+            android:layout_marginRight="@dimen/margin20"
             android:gravity="center"
-            android:text="@{nb.newName}" />
-    </LinearLayout>
+            android:text="@{nb.newName}"
+            android:textColor="@color/colorTitleText" />
+    </RelativeLayout>
 </layout>

@@ -6,6 +6,7 @@ package com.managerlee.assessment.bean;
 
 public class LoginUserBean {
     private UserBean user;
+    private CompanyBean company;
     private String token;
 
     public UserBean getUser() {
@@ -22,5 +23,13 @@ public class LoginUserBean {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public CompanyBean getCompany() {
+        return company;
+    }
+
+    public void setCompany(CompanyBean company) {
+        this.company = company;
     }
 }

@@ -7,26 +7,10 @@
         android:paddingTop="@dimen/top20"
         android:paddingBottom="@dimen/top20"
         android:background="@android:color/white">
-        <GridView
-            android:id="@+id/gv_site"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:numColumns="3">
-        </GridView>
+            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:drawableTop="@drawable/weibo"
-            android:gravity="center"
-            android:text="新浪微博"/>
-        <TextView
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:drawableTop="@drawable/weibo"
-            android:gravity="center"
-            android:text="新浪微博"/>
     </LinearLayout>
 </layout>

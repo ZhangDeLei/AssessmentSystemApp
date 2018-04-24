@@ -12,6 +12,7 @@ import com.managerlee.assessment.framework.base.BaseActivity;
  */
 
 public class TaskReleaseActivity extends BaseActivity {
+
     private ActivityTaskReleaseBinding mBinding;
 
     @Override

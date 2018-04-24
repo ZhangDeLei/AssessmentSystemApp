@@ -44,6 +44,7 @@ public class ProgressHelper {
 
     private void createDialog(Context context, String msg) {
         dialog = new Dialog(context, R.style.DefaultDialog);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         Window window = dialog.getWindow();
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
@@ -54,7 +55,7 @@ public class ProgressHelper {
                 | View.SYSTEM_UI_FLAG_FULLSCREEN;
         window.getDecorView().setSystemUiVisibility(uiOptions);
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         WindowManager.LayoutParams lp = window.getAttributes();
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;
         lp.height = WindowManager.LayoutParams.MATCH_PARENT;

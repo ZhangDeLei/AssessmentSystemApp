@@ -48,6 +48,7 @@ public class LoginViewModel extends BaseViewModel {
                 PerferenceConfig.UserAccount.set(data.getUser().getUserAccount());
                 PerferenceConfig.NickName.set(data.getUser().getNickName());
                 PerferenceConfig.UserId.set(data.getUser().getId());
+                PerferenceConfig.CompanyId.set(data.getCompany().getId());
                 activity.finish();
                 activity.startActivity(new Intent(activity, IndexActivity.class));
             }

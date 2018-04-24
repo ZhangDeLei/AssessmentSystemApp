@@ -29,6 +29,7 @@
         <activity android:name=".view.TaskCommentActivity" android:theme="@style/AppTheme"/>
         <activity android:name=".view.TaskDetailActivity" android:theme="@style/AppTheme"/>
         <activity android:name=".view.TaskReleaseActivity" android:theme="@style/AppTheme"/>
+        <activity android:name=".view.WebviewActivity" android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

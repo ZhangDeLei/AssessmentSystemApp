@@ -55,12 +55,13 @@ public class UpdateViewModel extends BaseViewModel {
 
             @Override
             public void onError(String msg) {
+                ProgressHelper.init().close();
                 ToastUtils.show(msg);
             }
 
             @Override
             public void onCompleted() {
-
+                ProgressHelper.init().close();
             }
         });
     }

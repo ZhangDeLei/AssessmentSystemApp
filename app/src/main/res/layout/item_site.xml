@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-</android.support.constraint.ConstraintLayout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="com.managerlee.assessment.bean.NewBean"/>
+        <variable
+            name="nb"
+            type="NewBean"/>
+    </data>
+    <LinearLayout
+        android:id="@+id/itemSite"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/weibo"
+            android:gravity="center"
+            android:text="@{nb.newName}" />
+    </LinearLayout>
+</layout>

@@ -3,7 +3,7 @@
     <data>
         <variable
             name="task"
-            type="com.managerlee.assessment.bean.TaskInfo"/>
+            type="com.managerlee.assessment.bean.TaskBean"/>
     </data>
     <LinearLayout
         android:id="@+id/itemView"
@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:background="@android:color/white"
         android:orientation="horizontal"
-        android:padding="@dimen/top5">
+        android:padding="@dimen/top5"
+        android:layout_marginBottom="@dimen/top5">
 
         <TextView
             android:layout_width="@dimen/width80"
@@ -32,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:text="网易新闻：习近平：审核认识"
+                android:text="@{task.title}"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/textSize16"/>
             <TextView
@@ -41,14 +42,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:text="评论"
+                android:text="@{task.typeName}"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/textSize16"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:text="2018-01-01 00:00:00"
+                android:text="@{task.createDate}"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/textSize16"/>
         </LinearLayout>
@@ -62,14 +63,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:text="已完成" />
+                android:text="@{task.stageName}" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="right|bottom"
-                android:text="网易新闻" />
+                android:text="@{task.newName}" />
         </LinearLayout>
     </LinearLayout>
 </layout>

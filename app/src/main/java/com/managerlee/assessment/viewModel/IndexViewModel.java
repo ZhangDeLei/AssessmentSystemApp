@@ -1,5 +1,6 @@
 package com.managerlee.assessment.viewModel;
 
+import android.databinding.ObservableField;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.support.v4.app.FragmentManager;
@@ -18,6 +19,7 @@ import com.managerlee.assessment.view.FragmentTask;
 public class IndexViewModel {
     private Context context;
     private FragmentManager fm;
+    public ObservableField<Integer> tagType = new ObservableField<>(); //当前选择的tag类型
     private Fragment articleFragment, taskFragment, siteFragment;
 
     public IndexViewModel(Context context, FragmentManager fm) {
@@ -42,6 +44,7 @@ public class IndexViewModel {
         hideFragment(ft);
         switch (index) {
             case 0:
+                this.tagType.set(1);
                 if (articleFragment == null) {
                     articleFragment = new FragmentArticle();
                     ft.add(R.id.framelayout, articleFragment);
@@ -49,6 +52,7 @@ public class IndexViewModel {
                 ft.show(articleFragment);
                 break;
             case 1:
+                this.tagType.set(2);
                 if (taskFragment == null) {
                     taskFragment = new FragmentTask();
                     ft.add(R.id.framelayout, taskFragment);
@@ -56,6 +60,7 @@ public class IndexViewModel {
                 ft.show(taskFragment);
                 break;
             case 2:
+                this.tagType.set(3);
                 if (siteFragment == null) {
                     siteFragment = new FragmentSite();
                     ft.add(R.id.framelayout, siteFragment);
@@ -77,5 +82,9 @@ public class IndexViewModel {
         if (siteFragment != null) {
             ft.hide(siteFragment);
         }
+    }
+
+    public void setTagType(int tagType) {
+        this.tagType.set(tagType);
     }
 }

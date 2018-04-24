@@ -49,7 +49,7 @@ public class TaskViewImpl implements ITaskView {
 
                     @Override
                     public void onComplete() {
-
+                        listener.onCompleted();
                     }
                 });
     }

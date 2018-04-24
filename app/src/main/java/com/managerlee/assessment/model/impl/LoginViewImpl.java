@@ -51,7 +51,7 @@ public class LoginViewImpl implements ILoginView {
 
                     @Override
                     public void onComplete() {
-
+                        listener.onCompleted();
                     }
                 });
     }

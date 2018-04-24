@@ -29,32 +29,33 @@
 
             <LinearLayout
                 android:id="@+id/ll_article"
-                android:onClick="@{viewModel.gotoPageForArticle}"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/height70"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:onClick="@{viewModel.gotoPageForArticle}"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="@dimen/width24"
                     android:layout_height="@dimen/height24"
-                    android:background="@drawable/article_uncheck" />
+                    android:background="@{viewModel.tagType==1?@drawable/article_checked:@drawable/article_uncheck}" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/article" />
+                    android:text="@string/article"
+                    android:textColor="@{viewModel.tagType==1?@color/red:@color/colorTitleText}"/>
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/ll_task"
-                android:onClick="@{viewModel.gotoPageForTask}"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/top5"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:layout_marginTop="@dimen/top5"
+                android:onClick="@{viewModel.gotoPageForTask}"
                 android:orientation="vertical">
 
                 <ImageView
@@ -73,22 +74,23 @@
 
             <LinearLayout
                 android:id="@+id/ll_site"
-                android:onClick="@{viewModel.gotoPageForSite}"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/height70"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:onClick="@{viewModel.gotoPageForSite}"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="@dimen/width24"
                     android:layout_height="@dimen/height24"
-                    android:background="@drawable/site_uncheck" />
+                    android:background="@{viewModel.tagType==3?@drawable/site_checked:@drawable/site_uncheck}" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/site" />
+                    android:text="@string/site"
+                    android:textColor="@{viewModel.tagType==3?@color/red:@color/colorTitleText}"/>
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>

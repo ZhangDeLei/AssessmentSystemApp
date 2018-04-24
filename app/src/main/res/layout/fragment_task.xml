@@ -33,6 +33,7 @@
                 android:src="@drawable/setting" />
 
             <EditText
+                android:singleLine="true"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -51,7 +52,9 @@
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipeRegreshLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/top10"
+            android:layout_marginBottom="@dimen/height60">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView"

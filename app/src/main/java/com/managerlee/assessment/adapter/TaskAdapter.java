@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import com.managerlee.assessment.R;
 import com.managerlee.assessment.bean.TaskBean;
-import com.managerlee.assessment.bean.TaskInfo;
 import com.managerlee.assessment.databinding.ItemTaskBinding;
 import com.managerlee.assessment.framework.base.BaseAdapter;
 
@@ -25,8 +24,7 @@ public class TaskAdapter extends BaseAdapter<TaskAdapter.Holder, TaskBean> {
 
     @Override
     public void onBindViewHolder(Holder holder, int position) {
-        TaskInfo taskInfo= new TaskInfo();
-        holder.mBinding.setTask(taskInfo);
+        holder.mBinding.setTask(this.data.get(position));
     }
 
     @Override

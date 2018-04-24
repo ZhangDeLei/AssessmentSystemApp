@@ -26,6 +26,7 @@ public class IndexActivity extends BaseActivity {
     public void bindData() {
         fm = getSupportFragmentManager();
         viewModel = new IndexViewModel(mAct, fm);
+        viewModel.setTagType(2);
         viewModel.selectFragment(1);
         mBinding.setViewModel(viewModel);
     }

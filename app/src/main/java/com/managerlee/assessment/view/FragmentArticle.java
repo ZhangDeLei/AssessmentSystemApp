@@ -1,9 +1,9 @@
 package com.managerlee.assessment.view;
 
 import android.databinding.DataBindingUtil;
-import android.support.v4.app.FragmentManager;
 import android.view.View;
 
+import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.managerlee.assessment.R;
 import com.managerlee.assessment.databinding.FragmentArticleBinding;
 import com.managerlee.assessment.framework.base.BaseFragment;
@@ -14,11 +14,11 @@ import com.managerlee.assessment.viewModel.ArticleViewModel;
  * Created by anins on 2018/3/22.
  */
 
-public class FragmentArticle extends BaseFragment {
+public class FragmentArticle extends BaseFragment implements OnTabSelectListener {
 
     private FragmentArticleBinding mBinding;
     private ArticleViewModel viewModel;
-    private FragmentManager fm;
+
 
     public static FragmentArticle getInstance() {
         return new FragmentArticle();
@@ -36,8 +36,18 @@ public class FragmentArticle extends BaseFragment {
 
     @Override
     public void bindData() {
-        fm = getActivity().getSupportFragmentManager();
-        viewModel = new ArticleViewModel(getContext(), fm);
+        viewModel = new ArticleViewModel(getContext());
+        mBinding.ctTitleTab.setTabData(viewModel.getTabEntitys(), getActivity(), R.id.fl_framelayout, viewModel.getFragments());
         mBinding.setArticle(viewModel);
+    }
+
+    @Override
+    public void onTabSelect(int position) {
+        mBinding.ctTitleTab.setCurrentTab(position);
+    }
+
+    @Override
+    public void onTabReselect(int position) {
+
     }
 }

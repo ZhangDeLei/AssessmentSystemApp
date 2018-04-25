@@ -7,6 +7,8 @@ import com.managerlee.assessment.framework.base.BaseViewModel;
 import com.managerlee.assessment.framework.dialog.ConfirmDialog;
 import com.managerlee.assessment.framework.dialog.ProgressHelper;
 import com.managerlee.assessment.framework.http.event.CallBackListener;
+import com.managerlee.assessment.framework.preference.PerferenceConfig;
+import com.managerlee.assessment.framework.utils.StringUtil;
 import com.managerlee.assessment.framework.utils.SystemUtils;
 import com.managerlee.assessment.framework.utils.ToastUtils;
 import com.managerlee.assessment.view.LoginActivity;
@@ -34,8 +36,17 @@ public class UpdateViewModel extends BaseViewModel {
             public void onSuccess(AppUpdateBean data) {
                 ProgressHelper.init().close();
                 if (data.getVersionCode() == SystemUtils.currentVersionCode(activity)) {
-                    activity.finish();
-                    activity.startActivity(new Intent(activity, LoginActivity.class));
+                    if (StringUtil.isNotNull(PerferenceConfig.UserAccount.get()) &&
+                            StringUtil.isNotNull(PerferenceConfig.Password.get())) {
+                        LoginViewModel
+                                .getInstance(activity)
+                                .defaultLogin(
+                                        PerferenceConfig.UserAccount.get(),
+                                        PerferenceConfig.Password.get());
+                    } else {
+                        activity.finish();
+                        activity.startActivity(new Intent(activity, LoginActivity.class));
+                    }
                 } else {
                     ConfirmDialog dialog = new ConfirmDialog(activity, "发现新版本", data.getComment());
                     dialog.setListener(new ConfirmDialog.OnClickListener() {

@@ -9,6 +9,9 @@ public class URLConstant {
     public static final String GetNewVersion = "api/appManager/getAppByNewForAndroid"; //获取最新的版本信息
     public static final String Login_URL = "api/auth/login"; //登陆
 
+    //字典值
+    public static final String Dict_GetDictListByEnName = "api/dictionary/getDictListByEnName"; //根据英文名称获取字典值列表
+
     //任务管理
     public static final String Task_GetTaskListByUserId = "api/task/getTaskListByUserId"; //根据用户ID获取任务列表
     public static final String Task_GetTaskById = "api/task/getTaskById";//根据ID获取任务信息

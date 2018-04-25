@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.managerlee.assessment.bean.DictBean" />
+
+        <import type="com.managerlee.assessment.adapter.ArticleTypeAdapter.ClickEvent" />
+
+        <variable
+            name="dict"
+            type="DictBean" />
+
+        <variable
+            name="selectIndex"
+            type="Boolean" />
+
+        <variable
+            name="clickEvent"
+            type="ClickEvent" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ll_type"
+        android:layout_width="@dimen/width80"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:onClick="@{(view)->clickEvent.itemClick(view,dict)}"
+        android:orientation="horizontal"
+        android:textSize="@dimen/textSize18">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:onClick="@{(view)->clickEvent.itemClick(view,dict)}"
+            android:text="@{dict.label}"
+            android:textColor="@{selectIndex?@android:color/black:@color/colorTitleText}" />
+    </LinearLayout>
+</layout>

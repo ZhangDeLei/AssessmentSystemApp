@@ -23,7 +23,7 @@ public class LoginViewModel extends BaseViewModel {
 
     public ObservableField<String> userAccount;
     public ObservableField<String> password;
-    private ILoginView loginView;
+    private static ILoginView loginView;
     private ActivityLoginBinding mBinding;
 
     public LoginViewModel(Activity activity, ActivityLoginBinding mBinding) {
@@ -31,6 +31,15 @@ public class LoginViewModel extends BaseViewModel {
         this.mBinding = mBinding;
         loginView = new LoginViewImpl();
         initData();
+    }
+
+    public LoginViewModel(Activity activity) {
+        super(activity);
+    }
+
+    public static LoginViewModel getInstance(Activity activity) {
+        loginView = new LoginViewImpl();
+        return new LoginViewModel(activity);
     }
 
     /**
@@ -41,7 +50,14 @@ public class LoginViewModel extends BaseViewModel {
     public void login(View view) {
         String userAccount = mBinding.etUserAccount.getText().toString();
         String password = mBinding.etPassword.getText().toString();
-        loginView.login(userAccount, password, new CallBackListener<LoginUserBean>() {
+        defaultLogin(userAccount, password);
+    }
+
+    /**
+     * 默认登录
+     */
+    public void defaultLogin(String account, final String password) {
+        loginView.login(account, password, new CallBackListener<LoginUserBean>() {
             @Override
             public void onSuccess(LoginUserBean data) {
                 PerferenceConfig.TOKEN.set(data.getToken());
@@ -49,6 +65,7 @@ public class LoginViewModel extends BaseViewModel {
                 PerferenceConfig.NickName.set(data.getUser().getNickName());
                 PerferenceConfig.UserId.set(data.getUser().getId());
                 PerferenceConfig.CompanyId.set(data.getCompany().getId());
+                PerferenceConfig.Password.set(password);
                 activity.finish();
                 activity.startActivity(new Intent(activity, IndexActivity.class));
             }

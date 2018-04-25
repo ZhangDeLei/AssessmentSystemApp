@@ -18,6 +18,8 @@ public class PerferenceConfig {
 
     public static StringPreferences UserAccount = new StringPreferences(SHARED_PREFERENCES_INIT, "userAccount", "");
 
+    public static StringPreferences Password = new StringPreferences(SHARED_PREFERENCES_INIT, "password", "");
+
     public static StringPreferences NickName = new StringPreferences(SHARED_PREFERENCES_INIT, "nickName", "");
 
     public static IntPreferences UserId = new IntPreferences(SHARED_PREFERENCES_INIT, "userId", -1);

@@ -1,11 +1,13 @@
 package com.managerlee.assessment.view;
 
 import android.databinding.DataBindingUtil;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 
 import com.managerlee.assessment.R;
 import com.managerlee.assessment.databinding.FragmentArticleBinding;
 import com.managerlee.assessment.framework.base.BaseFragment;
+import com.managerlee.assessment.viewModel.ArticleViewModel;
 
 /**
  * 网评文章
@@ -15,8 +17,10 @@ import com.managerlee.assessment.framework.base.BaseFragment;
 public class FragmentArticle extends BaseFragment {
 
     private FragmentArticleBinding mBinding;
+    private ArticleViewModel viewModel;
+    private FragmentManager fm;
 
-    public static FragmentArticle getInstance(){
+    public static FragmentArticle getInstance() {
         return new FragmentArticle();
     }
 
@@ -32,6 +36,8 @@ public class FragmentArticle extends BaseFragment {
 
     @Override
     public void bindData() {
-
+        fm = getActivity().getSupportFragmentManager();
+        viewModel = new ArticleViewModel(getContext(), fm);
+        mBinding.setArticle(viewModel);
     }
 }

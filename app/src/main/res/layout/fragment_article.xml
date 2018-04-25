@@ -1,61 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.managerlee.assessment.viewModel.ArticleViewModel" />
+
+        <variable
+            name="article"
+            type="ArticleViewModel" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@android:color/white">
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/height50"
             android:background="@drawable/title_bg"
             android:gravity="center|left"
             android:orientation="horizontal">
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:onClick="@{(view)->article.select(view,1)}"
+                android:orientation="vertical"
                 android:paddingLeft="@dimen/top40"
-                android:paddingRight="@dimen/top40"
-                android:orientation="vertical">
+                android:paddingRight="@dimen/top40">
+
                 <TextView
-                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:button="@null"
+                    android:gravity="center"
                     android:text="文章"
-                    android:textColor="@color/colorTitleText"
+                    android:textColor="@{article.checkType==1?@color/red:@color/colorTitleText}"
                     android:textSize="@dimen/textSize18"
-                    android:textStyle="bold"
-                    android:gravity="center"/>
+                    android:textStyle="bold" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:background="@android:color/white"/>
+                    android:background="@{article.checkType==1?@color/red:@android:color/white}"/>
             </LinearLayout>
+
             <LinearLayout
+                android:onClick="@{(view)->article.select(view,2)}"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:orientation="vertical"
                 android:paddingLeft="@dimen/top40"
-                android:paddingRight="@dimen/top40"
-                android:orientation="vertical">
+                android:paddingRight="@dimen/top40">
+
                 <TextView
-                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:button="@null"
+                    android:gravity="center"
                     android:text="网站合集"
-                    android:textColor="@color/red"
+                    android:textColor="@{article.checkType==2?@color/red:@color/colorTitleText}"
                     android:textSize="@dimen/textSize18"
-                    android:textStyle="bold"
-                    android:gravity="center"/>
+                    android:textStyle="bold" />
+
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="@color/red"/>
+                    android:layout_height="2.5dp"
+                    android:background="@{article.checkType==2?@color/red:@android:color/white}" />
             </LinearLayout>
         </LinearLayout>
+
         <FrameLayout
             android:id="@+id/fragment"
             android:layout_width="match_parent"

@@ -1,28 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/height50"
-            android:gravity="center|left"
-            android:background="@drawable/title_bg">
+            android:background="@drawable/title_bg"
+            android:gravity="center|left">
+
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/left"
-                android:background="@android:color/transparent"/>
+                android:background="@android:color/transparent"
+                android:src="@drawable/left" />
+
             <TextView
-                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="账号绑定"
-                android:textStyle="bold"
+                android:textColor="@color/colorTitleText"
                 android:textSize="@dimen/textSize18"
-                android:textColor="@color/colorTitleText"/>
+                android:textStyle="bold" />
         </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
     </LinearLayout>
 </layout>

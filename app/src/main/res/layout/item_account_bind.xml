@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="com.managerlee.assessment.bean.NewBean"/>
+        <variable
+            name="newBean"
+            type="NewBean"/>
+    </data>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/top10"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height60"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@android:color/white">
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{newBean.newName}"
+            android:layout_marginLeft="@dimen/margin20"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/textSize18"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已绑定"
+            android:textColor="@android:color/black"
+            android:layout_marginRight="@dimen/top10"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right"
+            android:layout_marginRight="@dimen/margin20"/>
+    </LinearLayout>
+</layout>

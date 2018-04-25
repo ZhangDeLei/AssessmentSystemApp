@@ -12,7 +12,7 @@ import com.managerlee.assessment.framework.base.BaseFragment;
  * Created by anins on 2018/3/23.
  */
 
-public class ActicleListFragment extends BaseFragment {
+public class ArticleListFragment extends BaseFragment {
     private FragmentArticleListBinding mBinding;
 
     @Override

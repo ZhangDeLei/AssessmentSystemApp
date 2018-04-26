@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/height300"
+    android:layout_height="@dimen/dimen300"
     android:background="@drawable/dialog_bg"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height60"
+        android:layout_height="@dimen/dimen60"
         android:gravity="center">
 
         <TextView
@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:textColor="@color/colorTitleText"
-            android:textSize="@dimen/textSize18"
+            android:textSize="@dimen/dimen18"
             android:textStyle="bold" />
 
         <ImageButton
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
-            android:layout_marginRight="@dimen/top10"
+            android:layout_marginRight="@dimen/dimen10"
             android:background="@android:color/transparent"
             android:src="@drawable/close" />
     </RelativeLayout>
@@ -42,23 +42,23 @@
         android:layout_weight="1"
         android:gravity="center"
         android:textColor="@color/colorTitleText"
-        android:textSize="@dimen/textSize16" />
+        android:textSize="@dimen/dimen16" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height70"
+        android:layout_height="@dimen/dimen70"
         android:gravity="center"
         android:orientation="vertical">
 
         <Button
             android:id="@+id/dialog_btn_confirm"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height50"
-            android:layout_marginLeft="@dimen/top40"
-            android:layout_marginRight="@dimen/top40"
+            android:layout_height="@dimen/dimen50"
+            android:layout_marginLeft="@dimen/dimen40"
+            android:layout_marginRight="@dimen/dimen40"
             android:background="@drawable/login_button"
             android:text="@string/dialog_confirm"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/textSize18" />
+            android:textSize="@dimen/dimen18" />
     </LinearLayout>
 </LinearLayout>

@@ -17,7 +17,7 @@ import com.managerlee.assessment.framework.base.BaseAdapter;
 
 public class ArticleTypeAdapter extends BaseAdapter<ArticleTypeAdapter.Holder, DictBean> {
     private ClickEvent event;
-    private Integer CurrentPosition = null;
+    private int CurrentPosition = -1;
 
     public ArticleTypeAdapter() {
         this.event = new ClickEvent();
@@ -26,11 +26,12 @@ public class ArticleTypeAdapter extends BaseAdapter<ArticleTypeAdapter.Holder, D
     @Override
     public void onBindViewHolder(Holder holder, int position) {
         DictBean bean = this.data.get(position);
-        if (CurrentPosition == null) {
+        if (CurrentPosition == -1) {
             CurrentPosition = bean.getId();
         }
         holder.binding.setDict(bean);
         holder.binding.setSelectIndex(CurrentPosition == bean.getId());
+        holder.binding.setClickEvent(event);
     }
 
     @Override
@@ -57,6 +58,20 @@ public class ArticleTypeAdapter extends BaseAdapter<ArticleTypeAdapter.Holder, D
          */
         public void itemClick(View view, DictBean bean) {
             CurrentPosition = bean.getId();
+            notifyDataSetChanged();
+            if (listener != null) {
+                listener.getArticleList(bean);
+            }
         }
+    }
+
+    private ItemListener listener;
+
+    public void setListener(ItemListener listener) {
+        this.listener = listener;
+    }
+
+    public interface ItemListener {
+        void getArticleList(DictBean bean);
     }
 }

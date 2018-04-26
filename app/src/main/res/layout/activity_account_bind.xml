@@ -12,7 +12,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height50"
+            android:layout_height="@dimen/dimen50"
             android:background="@drawable/title_bg"
             android:gravity="center|left">
 
@@ -28,7 +28,7 @@
                 android:gravity="center"
                 android:text="账号绑定"
                 android:textColor="@color/colorTitleText"
-                android:textSize="@dimen/textSize18"
+                android:textSize="@dimen/dimen18"
                 android:textStyle="bold" />
         </RelativeLayout>
 

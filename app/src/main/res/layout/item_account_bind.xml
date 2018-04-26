@@ -8,9 +8,9 @@
     </data>
 
     <LinearLayout
-        android:layout_marginTop="@dimen/top10"
+        android:layout_marginTop="@dimen/dimen10"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height60"
+        android:layout_height="@dimen/dimen60"
         android:orientation="horizontal"
         android:gravity="center"
         android:background="@android:color/white">
@@ -19,21 +19,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{newBean.newName}"
-            android:layout_marginLeft="@dimen/margin20"
+            android:layout_marginLeft="@dimen/dimen20"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/textSize18"/>
+            android:textSize="@dimen/dimen18"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="已绑定"
             android:textColor="@android:color/black"
-            android:layout_marginRight="@dimen/top10"/>
+            android:layout_marginRight="@dimen/dimen10"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/right"
-            android:layout_marginRight="@dimen/margin20"/>
+            android:layout_marginRight="@dimen/dimen20"/>
     </LinearLayout>
 </layout>

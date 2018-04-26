@@ -11,70 +11,70 @@
         android:layout_height="match_parent">
         <ImageView
             android:onClick="@{viewModel.exit}"
-            android:layout_width="@dimen/width24"
-            android:layout_height="@dimen/height24"
+            android:layout_width="@dimen/dimen24"
+            android:layout_height="@dimen/dimen24"
             android:background="@drawable/close"
-            android:layout_marginTop="@dimen/top10"
-            android:layout_marginLeft="@dimen/top10"/>
+            android:layout_marginTop="@dimen/dimen10"
+            android:layout_marginLeft="@dimen/dimen10"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center">
             <ImageView
-                android:layout_width="@dimen/width200"
-                android:layout_height="@dimen/height200"
+                android:layout_width="@dimen/dimen200"
+                android:layout_height="@dimen/dimen200"
                 android:background="@drawable/logo"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/account_login"
-                android:textSize="@dimen/textSize18"
+                android:textSize="@dimen/dimen18"
                 android:textStyle="bold"
                 android:textColor="@color/red"
-                android:layout_marginTop="@dimen/top5"/>
+                android:layout_marginTop="@dimen/dimen5"/>
 
             <EditText
                 android:id="@+id/et_userAccount"
-                android:layout_marginTop="@dimen/top20"
+                android:layout_marginTop="@dimen/dimen20"
                 android:hint="@string/username"
                 android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding10"
-                android:layout_marginLeft="@dimen/margin40"
-                android:layout_marginRight="@dimen/margin40"
+                android:padding="@dimen/dimen10"
+                android:layout_marginLeft="@dimen/dimen40"
+                android:layout_marginRight="@dimen/dimen40"
                 android:text="@{viewModel.userAccount}"
                 android:background="@drawable/login_edittext"/>
             <EditText
                 android:id="@+id/et_password"
-                android:layout_marginTop="@dimen/top20"
+                android:layout_marginTop="@dimen/dimen20"
                 android:hint="@string/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin40"
-                android:layout_marginRight="@dimen/margin40"
+                android:layout_marginLeft="@dimen/dimen40"
+                android:layout_marginRight="@dimen/dimen40"
                 android:text="@{viewModel.password}"
                 android:inputType="textPassword"
                 android:background="@drawable/login_edittext"
-                android:padding="@dimen/padding10"/>
+                android:padding="@dimen/dimen10"/>
 
             <Button
                 android:onClick="@{viewModel.login}"
-                android:layout_marginLeft="@dimen/margin40"
-                android:layout_marginRight="@dimen/margin40"
-                android:layout_marginTop="@dimen/top20"
+                android:layout_marginLeft="@dimen/dimen40"
+                android:layout_marginRight="@dimen/dimen40"
+                android:layout_marginTop="@dimen/dimen20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/login_button"
                 android:textColor="@android:color/white"
                 android:text="@string/login"
-                android:textSize="@dimen/textSize18"/>
+                android:textSize="@dimen/dimen18"/>
 
             <TextView
                 android:layout_weight="1"
                 android:gravity="bottom"
-                android:paddingBottom="@dimen/height40"
+                android:paddingBottom="@dimen/dimen40"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="忘记密码?"/>

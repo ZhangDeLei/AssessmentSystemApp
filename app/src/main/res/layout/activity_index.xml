@@ -21,7 +21,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height90"
+            android:layout_height="@dimen/dimen90"
             android:layout_alignParentBottom="true"
             android:background="@drawable/footer_bg"
             android:gravity="bottom"
@@ -30,15 +30,15 @@
             <LinearLayout
                 android:id="@+id/ll_article"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/height70"
+                android:layout_height="@dimen/dimen70"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:onClick="@{viewModel.gotoPageForArticle}"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="@dimen/width24"
-                    android:layout_height="@dimen/height24"
+                    android:layout_width="@dimen/dimen24"
+                    android:layout_height="@dimen/dimen24"
                     android:background="@{viewModel.tagType==1?@drawable/article_checked:@drawable/article_uncheck}" />
 
                 <TextView
@@ -52,38 +52,38 @@
                 android:id="@+id/ll_task"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/top5"
+                android:layout_marginTop="@dimen/dimen5"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:onClick="@{viewModel.gotoPageForTask}"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="@dimen/width40"
-                    android:layout_height="@dimen/height40"
+                    android:layout_width="@dimen/dimen40"
+                    android:layout_height="@dimen/dimen40"
                     android:background="@drawable/task" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/top5"
+                    android:layout_marginTop="@dimen/dimen5"
                     android:text="@string/task"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/textSize18" />
+                    android:textSize="@dimen/dimen18" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/ll_site"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/height70"
+                android:layout_height="@dimen/dimen70"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:onClick="@{viewModel.gotoPageForSite}"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="@dimen/width24"
-                    android:layout_height="@dimen/height24"
+                    android:layout_width="@dimen/dimen24"
+                    android:layout_height="@dimen/dimen24"
                     android:background="@{viewModel.tagType==3?@drawable/site_checked:@drawable/site_uncheck}" />
 
                 <TextView

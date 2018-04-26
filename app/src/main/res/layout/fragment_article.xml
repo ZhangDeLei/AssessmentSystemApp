@@ -20,7 +20,7 @@
         <com.flyco.tablayout.CommonTabLayout
             android:id="@+id/ct_title_tab"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height50"
+            android:layout_height="@dimen/dimen50"
             android:background="@drawable/title_bg"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"
@@ -31,8 +31,8 @@
             app:tl_underline_color="@android:color/white"
             app:tl_underline_height="2dp"
             app:tl_textBold="BOTH"
-            app:tl_textsize="@dimen/textSize18"
-            app:tl_indicator_width="@dimen/width80"></com.flyco.tablayout.CommonTabLayout>
+            app:tl_textsize="@dimen/dimen18"
+            app:tl_indicator_width="@dimen/dimen80"></com.flyco.tablayout.CommonTabLayout>
 
         <FrameLayout
             android:id="@+id/fl_framelayout"

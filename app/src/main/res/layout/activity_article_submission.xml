@@ -7,7 +7,7 @@
         android:orientation="vertical">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height50"
+            android:layout_height="@dimen/dimen50"
             android:gravity="center|left"
             android:background="@drawable/title_bg">
             <ImageButton
@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:text="投稿"
                 android:textStyle="bold"
-                android:textSize="@dimen/textSize18"
+                android:textSize="@dimen/dimen18"
                 android:layout_centerInParent="true"
                 android:textColor="@color/colorTitleText"/>
             <Button

@@ -20,7 +20,7 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height50"
+            android:layout_height="@dimen/dimen50"
             android:background="@drawable/title_bg"
             android:gravity="center|left"
             android:orientation="horizontal">
@@ -28,8 +28,8 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/top20"
-                android:layout_marginRight="@dimen/top20"
+                android:layout_marginLeft="@dimen/dimen20"
+                android:layout_marginRight="@dimen/dimen20"
                 android:background="@android:color/transparent"
                 android:onClick="@{viewModel.gotoSetting}"
                 android:src="@drawable/setting" />
@@ -41,7 +41,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/search_edittext"
                 android:drawableLeft="@drawable/search"
-                android:paddingLeft="@dimen/top10" />
+                android:paddingLeft="@dimen/dimen10" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -55,8 +55,8 @@
             android:id="@+id/swipeRegreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/top10"
-            android:layout_marginBottom="@dimen/height60">
+            android:layout_marginTop="@dimen/dimen10"
+            android:layout_marginBottom="@dimen/dimen60">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView"

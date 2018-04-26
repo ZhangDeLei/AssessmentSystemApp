@@ -4,8 +4,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:paddingTop="@dimen/top20"
-        android:paddingBottom="@dimen/top20"
+        android:paddingTop="@dimen/dimen20"
+        android:paddingBottom="@dimen/dimen20"
         android:background="@android:color/white">
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"

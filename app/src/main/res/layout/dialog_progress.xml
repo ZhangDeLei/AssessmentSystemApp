@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="@android:color/white"
-        android:layout_marginTop="@dimen/top10"
-        android:textSize="@dimen/textSize16" />
+        android:layout_marginTop="@dimen/dimen10"
+        android:textSize="@dimen/dimen16" />
 
 </LinearLayout>

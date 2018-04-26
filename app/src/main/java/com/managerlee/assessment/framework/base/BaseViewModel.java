@@ -12,8 +12,15 @@ import com.managerlee.assessment.framework.config.GlobalConfig;
  */
 
 public class BaseViewModel extends BaseObservable {
+
+    public int CurPage = 1;//当前页码
     public Activity activity;
+
     public BaseViewModel(Activity activity) {
         this.activity = activity;
     }
+
+    public BaseViewModel() {
+    }
+
 }

@@ -75,7 +75,6 @@ public class ArticleListViewModel extends BaseViewModel{
     public void getArticleList(DictBean bean) {
         ArticleParam param = new ArticleParam();
         param.setCompanyId(PerferenceConfig.CompanyId.get());
-        param.setTypeId(bean.getId());
         param.setPageSize(Page.PageSize);
         param.setCurPage(CurPage);
         articleView.getArticleList(param, new CallBackListener<List<ArticleBean>>() {

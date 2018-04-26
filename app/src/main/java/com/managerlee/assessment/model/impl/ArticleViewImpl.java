@@ -32,8 +32,6 @@ public class ArticleViewImpl implements IArticleView {
         service.getArticleData(
                 param.getCompanyId(),
                 param.getTitle(),
-                param.getUserId(),
-                param.getTypeId(),
                 param.getPageSize(),
                 param.getCurPage())
                 .subscribeOn(Schedulers.io())

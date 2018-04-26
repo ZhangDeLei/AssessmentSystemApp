@@ -18,12 +18,13 @@ import com.managerlee.assessment.viewModel.ArticleListViewModel;
  * Created by anins on 2018/3/23.
  */
 
-public class ArticleListFragment extends BaseFragment implements ArticleTypeAdapter.ItemListener{
+public class ArticleListFragment extends BaseFragment implements ArticleTypeAdapter.ItemListener {
 
     private FragmentArticleListBinding mBinding;
     private ArticleListViewModel viewModel;
     private ArticleTypeAdapter typeAdapter;
     private ArticleListAdapter listAdapter;
+
     @Override
     public int setLayout() {
         return R.layout.fragment_article_list;
@@ -36,18 +37,21 @@ public class ArticleListFragment extends BaseFragment implements ArticleTypeAdap
 
     @Override
     public void bindData() {
-        typeAdapter = new ArticleTypeAdapter();
-        listAdapter = new ArticleListAdapter();
+        typeAdapter = new ArticleTypeAdapter(); //类型数据源
+        listAdapter = new ArticleListAdapter(); //文章列表数据源
         typeAdapter.setListener(this);
-        viewModel = new ArticleListViewModel(typeAdapter,listAdapter);
+        viewModel = new ArticleListViewModel(typeAdapter, listAdapter);
+        //分类列表
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         mBinding.rvTypeList.setLayoutManager(linearLayoutManager);
         mBinding.rvTypeList.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.HORIZONTAL));
         mBinding.rvTypeList.setAdapter(typeAdapter);
+        //文章列表
         LinearLayoutManager listLinearLayoutManager = new LinearLayoutManager(getContext());
         listLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mBinding.rvContent.setLayoutManager(listLinearLayoutManager);
+        mBinding.rvContent.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         mBinding.rvContent.setAdapter(listAdapter);
     }
 

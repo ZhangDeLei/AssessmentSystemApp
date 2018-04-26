@@ -10,8 +10,6 @@ import com.managerlee.assessment.framework.base.BasePageParam;
 public class ArticleParam extends BasePageParam {
     private int CompanyId;
     private String Title;
-    private Integer UserId;
-    private Integer TypeId;
 
     public int getCompanyId() {
         return CompanyId;
@@ -29,19 +27,4 @@ public class ArticleParam extends BasePageParam {
         Title = title;
     }
 
-    public Integer getUserId() {
-        return UserId;
-    }
-
-    public void setUserId(Integer userId) {
-        UserId = userId;
-    }
-
-    public Integer getTypeId() {
-        return TypeId;
-    }
-
-    public void setTypeId(Integer typeId) {
-        TypeId = typeId;
-    }
 }

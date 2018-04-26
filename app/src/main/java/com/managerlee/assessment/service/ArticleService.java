@@ -16,12 +16,10 @@ import retrofit2.http.Query;
 
 public interface ArticleService {
 
-    @GET(URLConstant.Article_GetArticleList)
+    @GET(URLConstant.Article_GetArticleListForApp)
     Observable<ResponseData<PageData<ArticleBean>>> getArticleData(
             @Query("CompanyId") int CompanyId,
             @Query("Title") String Title,
-            @Query("UserId") Integer UserId,
-            @Query("TypeId") Integer TypeId,
             @Query("PageSize") int PageSize,
             @Query("CurPage") int CurPage);
 }

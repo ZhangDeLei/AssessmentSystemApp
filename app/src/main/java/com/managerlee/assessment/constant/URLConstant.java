@@ -13,7 +13,7 @@ public class URLConstant {
     public static final String Dict_GetDictListByEnName = "api/dictionary/getDictListByEnName"; //根据英文名称获取字典值列表
 
     //文章管理
-    public static final String Article_GetArticleList = "api/article/getArticleList";//获取文章列表
+    public static final String Article_GetArticleListForApp = "api/article/getArticleListForApp";//获取文章列表
 
     //任务管理
     public static final String Task_GetTaskListByUserId = "api/task/getTaskListByUserId"; //根据用户ID获取任务列表

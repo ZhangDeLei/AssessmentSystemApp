@@ -32,6 +32,7 @@ public class ArticleViewImpl implements IArticleView {
         service.getArticleData(
                 param.getCompanyId(),
                 param.getTitle(),
+                param.getLevelId(),
                 param.getPageSize(),
                 param.getCurPage())
                 .subscribeOn(Schedulers.io())
@@ -41,6 +42,33 @@ public class ArticleViewImpl implements IArticleView {
                     public void onNext(ResponseData<PageData<ArticleBean>> response) {
                         if (response.getCode() == ResponseCode.SUCCESS) {
                             listener.onSuccess(response.getData().getList());
+                        } else {
+                            listener.onError(response.getMsg());
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        listener.onError(e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        listener.onCompleted();
+                    }
+                });
+    }
+
+    @Override
+    public void getArticleSiteList(int CompanyId, final CallBackListener<List<ArticleBean>> listener) {
+        service.getArticleSiteData(CompanyId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new DisposableObserver<ResponseData<List<ArticleBean>>>() {
+                    @Override
+                    public void onNext(ResponseData<List<ArticleBean>> response) {
+                        if (response.getCode() == ResponseCode.SUCCESS) {
+                            listener.onSuccess(response.getData());
                         } else {
                             listener.onError(response.getMsg());
                         }

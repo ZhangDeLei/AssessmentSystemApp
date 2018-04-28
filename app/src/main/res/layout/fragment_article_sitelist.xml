@@ -7,33 +7,14 @@
         android:orientation="vertical"
         android:background="@color/gray"
         android:padding="@dimen/dimen10">
-        <LinearLayout
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRegreshLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="新华每日电讯"
-                android:background="@android:color/white"
-                android:drawableRight="@drawable/right"
-                android:gravity="center"
-                android:paddingTop="@dimen/dimen20"
-                android:paddingBottom="@dimen/dimen20"
-                android:textSize="@dimen/dimen18"
-                android:layout_marginRight="@dimen/dimen10"/>
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="新华每日电讯"
-                android:background="@android:color/white"
-                android:drawableRight="@drawable/right"
-                android:gravity="center"
-                android:paddingTop="@dimen/dimen20"
-                android:paddingBottom="@dimen/dimen20"
-                android:textSize="@dimen/dimen18"/>
-        </LinearLayout>
+            android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
     </LinearLayout>
 </layout>

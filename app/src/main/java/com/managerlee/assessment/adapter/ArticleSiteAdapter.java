@@ -10,47 +10,48 @@ import android.view.ViewGroup;
 
 import com.managerlee.assessment.R;
 import com.managerlee.assessment.bean.ArticleBean;
-import com.managerlee.assessment.databinding.ItemArticleListBinding;
+import com.managerlee.assessment.databinding.ItemArticleSiteBinding;
 import com.managerlee.assessment.framework.base.BaseAdapter;
 import com.managerlee.assessment.view.WebviewActivity;
 
 /**
- * 网评文章数据源
- * Created by anins on 2018/4/26.
+ * 网站合集数据源
+ * Created by anins on 2018/4/28.
  */
 
-public class ArticleListAdapter extends BaseAdapter<ArticleListAdapter.Holder, ArticleBean> {
+public class ArticleSiteAdapter extends BaseAdapter<ArticleSiteAdapter.Holder, ArticleBean> {
     private Context context;
     private ClickEvent clickEvent;
-    public ArticleListAdapter(Context context) {
+
+    public ArticleSiteAdapter(Context context) {
         this.context = context;
         this.clickEvent = new ClickEvent();
     }
 
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
-        ItemArticleListBinding mBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_article_list, parent, false);
-        return new Holder(mBinding);
+        ItemArticleSiteBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item_article_site, parent, false);
+        return new Holder(binding);
     }
 
     @Override
     public void onBindViewHolder(Holder holder, int position) {
         ArticleBean bean = this.data.get(position);
-        holder.binding.setArticle(bean);
-        holder.binding.setClickEvent(clickEvent);
+        holder.mBinding.setArticle(bean);
+        holder.mBinding.setClickEvent(clickEvent);
     }
 
     class Holder extends RecyclerView.ViewHolder {
-        private ItemArticleListBinding binding;
+        private ItemArticleSiteBinding mBinding;
 
-        public Holder(ItemArticleListBinding binding) {
-            super(binding.llArticleItem);
-            this.binding = binding;
+        public Holder(ItemArticleSiteBinding binding) {
+            super(binding.llItemArticleSite);
+            this.mBinding = binding;
         }
     }
 
     public class ClickEvent {
-        public void gotoWebview(View view, ArticleBean bean) {
+        public void gotoPage(View view, ArticleBean bean) {
             Intent in = new Intent(context, WebviewActivity.class);
             in.putExtra("web_url", bean.getUrl());
             context.startActivity(in);

@@ -37,9 +37,15 @@
                 android:background="@android:color/transparent"
                 android:text="投稿" />
         </LinearLayout>
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_content"
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRegreshLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+            android:layout_height="match_parent"
+            >
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
     </LinearLayout>
 </layout>

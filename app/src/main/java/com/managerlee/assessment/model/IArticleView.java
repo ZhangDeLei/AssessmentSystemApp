@@ -12,4 +12,6 @@ import java.util.List;
 
 public interface IArticleView {
     void getArticleList(ArticleParam param, CallBackListener<List<ArticleBean>> listener);
+
+    void getArticleSiteList(int CompanyId, CallBackListener<List<ArticleBean>> listener);
 }

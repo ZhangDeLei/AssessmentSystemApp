@@ -1,41 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
-        <import type="com.managerlee.assessment.bean.ArticleBean"/>
+
+        <import type="com.managerlee.assessment.bean.ArticleBean" />
+
+        <import type="com.managerlee.assessment.adapter.ArticleListAdapter.ClickEvent" />
+
         <variable
             name="article"
-            type="ArticleBean"/>
+            type="ArticleBean" />
+
+        <variable
+            name="clickEvent"
+            type="ClickEvent" />
     </data>
+
     <LinearLayout
         android:id="@+id/ll_article_item"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(view)->clickEvent.gotoWebview(view,article)}"
         android:orientation="vertical"
         android:padding="@dimen/dimen10">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{article.title}"
-            android:textSize="@dimen/dimen18"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/dimen18" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
-                android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="left"
                 android:text="@{article.createUserName}"
-                android:textColor="@color/grey"/>
+                android:textColor="@color/grey" />
+
             <TextView
-                android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="left"
                 android:text="@{article.createTime}"
-                android:textColor="@color/grey"/>
+                android:textColor="@color/grey" />
         </LinearLayout>
     </LinearLayout>
 </layout>

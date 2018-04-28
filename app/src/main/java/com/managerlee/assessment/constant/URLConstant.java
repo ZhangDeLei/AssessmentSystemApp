@@ -5,7 +5,7 @@ package com.managerlee.assessment.constant;
  */
 
 public class URLConstant {
-    public static final String BASE_URL="http://192.168.1.117:8080/lamj/"; //基础地址
+    public static final String BASE_URL = "http://192.168.1.117:8080/lamj/"; //基础地址
     public static final String GetNewVersion = "api/appManager/getAppByNewForAndroid"; //获取最新的版本信息
     public static final String Login_URL = "api/auth/login"; //登陆
 
@@ -14,6 +14,7 @@ public class URLConstant {
 
     //文章管理
     public static final String Article_GetArticleListForApp = "api/article/getArticleListForApp";//获取文章列表
+    public static final String Article_GetArticleTypeForApp = "api/article/getArticleTypeForApp"; //获取网站合集列表
 
     //任务管理
     public static final String Task_GetTaskListByUserId = "api/task/getTaskListByUserId"; //根据用户ID获取任务列表
@@ -24,4 +25,7 @@ public class URLConstant {
 
     //新闻客户端管理
     public static final String NewAuth_GetNewAuthListByCompanyId = "api/newAuth/getNewAuthListByCompanyId"; //获取企业新闻客户端列表
+
+    //文章级别管理
+    public static final String ArticleLevel_GetArticleLevelList = "api/articleLevel/getArticleLevelList"; //获取文章级别列表
 }

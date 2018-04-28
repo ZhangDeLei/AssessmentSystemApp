@@ -9,6 +9,7 @@ import com.managerlee.assessment.framework.base.BasePageParam;
 
 public class ArticleParam extends BasePageParam {
     private int CompanyId;
+    private int LevelId;
     private String Title;
 
     public int getCompanyId() {
@@ -17,6 +18,14 @@ public class ArticleParam extends BasePageParam {
 
     public void setCompanyId(int companyId) {
         CompanyId = companyId;
+    }
+
+    public int getLevelId() {
+        return LevelId;
+    }
+
+    public void setLevelId(int levelId) {
+        LevelId = levelId;
     }
 
     public String getTitle() {

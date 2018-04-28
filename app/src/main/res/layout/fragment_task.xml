@@ -55,8 +55,7 @@
             android:id="@+id/swipeRegreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/dimen10"
-            android:layout_marginBottom="@dimen/dimen60">
+            android:layout_marginTop="@dimen/dimen10">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView"

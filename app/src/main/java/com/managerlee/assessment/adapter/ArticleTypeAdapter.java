@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.managerlee.assessment.R;
-import com.managerlee.assessment.bean.DictBean;
+import com.managerlee.assessment.bean.ArticleLevelBean;
 import com.managerlee.assessment.databinding.ItemArticleTypeBinding;
 import com.managerlee.assessment.framework.base.BaseAdapter;
 
@@ -15,9 +15,10 @@ import com.managerlee.assessment.framework.base.BaseAdapter;
  * Created by anins on 2018/4/25.
  */
 
-public class ArticleTypeAdapter extends BaseAdapter<ArticleTypeAdapter.Holder, DictBean> {
+public class ArticleTypeAdapter extends BaseAdapter<ArticleTypeAdapter.Holder, ArticleLevelBean> {
     private ClickEvent event;
-    private int CurrentPosition = -1;
+    private int CurrentId = -1;
+    private int CurrentPosition = 0;
 
     public ArticleTypeAdapter() {
         this.event = new ClickEvent();
@@ -25,12 +26,15 @@ public class ArticleTypeAdapter extends BaseAdapter<ArticleTypeAdapter.Holder, D
 
     @Override
     public void onBindViewHolder(Holder holder, int position) {
-        DictBean bean = this.data.get(position);
-        if (CurrentPosition == -1) {
-            CurrentPosition = bean.getId();
+        ArticleLevelBean bean = this.data.get(position);
+        if (CurrentId == -1) {
+            CurrentId = bean.getId();
         }
-        holder.binding.setDict(bean);
-        holder.binding.setSelectIndex(CurrentPosition == bean.getId());
+        if (CurrentId == bean.getId()) {
+            CurrentPosition = position;
+        }
+        holder.binding.setLevel(bean);
+        holder.binding.setSelectIndex(CurrentId == bean.getId());
         holder.binding.setClickEvent(event);
     }
 
@@ -49,6 +53,15 @@ public class ArticleTypeAdapter extends BaseAdapter<ArticleTypeAdapter.Holder, D
         }
     }
 
+    /**
+     * 获取当前Position
+     *
+     * @return
+     */
+    public int getCurrentPosition() {
+        return CurrentPosition;
+    }
+
     public class ClickEvent {
         /**
          * 点击
@@ -56,8 +69,8 @@ public class ArticleTypeAdapter extends BaseAdapter<ArticleTypeAdapter.Holder, D
          * @param view
          * @param bean
          */
-        public void itemClick(View view, DictBean bean) {
-            CurrentPosition = bean.getId();
+        public void itemClick(View view, ArticleLevelBean bean) {
+            CurrentId = bean.getId();
             notifyDataSetChanged();
             if (listener != null) {
                 listener.getArticleList(bean);
@@ -72,6 +85,6 @@ public class ArticleTypeAdapter extends BaseAdapter<ArticleTypeAdapter.Holder, D
     }
 
     public interface ItemListener {
-        void getArticleList(DictBean bean);
+        void getArticleList(ArticleLevelBean bean);
     }
 }

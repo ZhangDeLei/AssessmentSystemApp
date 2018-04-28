@@ -28,4 +28,8 @@ public class URLConstant {
 
     //文章级别管理
     public static final String ArticleLevel_GetArticleLevelList = "api/articleLevel/getArticleLevelList"; //获取文章级别列表
+
+    //投稿管理
+    public static final String Sub_Insert = "api/submission/insert";//新增投稿记录
+    public static final String Sub_GetSubmissionListByUserId = "api/submission/getSubmissionListByUserId";//获取用户的投稿记录
 }

@@ -23,4 +23,11 @@ public class BaseViewModel extends BaseObservable {
     public BaseViewModel() {
     }
 
+    /**
+     * 返回上一页
+     */
+    public void gotoBack() {
+        activity.finish();
+    }
+
 }

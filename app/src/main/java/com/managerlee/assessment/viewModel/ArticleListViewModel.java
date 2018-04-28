@@ -1,6 +1,7 @@
 package com.managerlee.assessment.viewModel;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.databinding.ObservableField;
 
 import com.managerlee.assessment.adapter.ArticleListAdapter;
@@ -19,6 +20,7 @@ import com.managerlee.assessment.model.IArticleView;
 import com.managerlee.assessment.model.impl.ArticleLevelViewImpl;
 import com.managerlee.assessment.model.impl.ArticleViewImpl;
 import com.managerlee.assessment.param.ArticleParam;
+import com.managerlee.assessment.view.ArticleSubmissionActivity;
 
 import java.util.List;
 
@@ -116,5 +118,10 @@ public class ArticleListViewModel extends BaseViewModel {
         });
     }
 
-
+    /**
+     * 跳转至投稿界面
+     */
+    public void gotoSubmission() {
+        context.startActivity(new Intent(context, ArticleSubmissionActivity.class));
+    }
 }

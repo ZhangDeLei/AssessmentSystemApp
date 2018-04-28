@@ -79,6 +79,7 @@ public class ArticleListFragment
             }
         });
         mBinding.swipeRegreshLayout.setOnRefreshListener(this);
+        mBinding.setViewModel(viewModel);
     }
 
     @Override

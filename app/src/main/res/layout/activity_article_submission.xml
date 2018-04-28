@@ -1,37 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+
+        <import type="com.managerlee.assessment.viewModel.ArticleSubmissionViewModel" />
+
+        <variable
+            name="sub"
+            type="ArticleSubmissionViewModel" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen50"
-            android:gravity="center|left"
-            android:background="@drawable/title_bg">
+            android:background="@drawable/title_bg"
+            android:gravity="center|left">
+
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/left"
-                android:layout_centerInParent="true"
                 android:layout_alignParentLeft="true"
-                android:background="@android:color/transparent"/>
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                android:onClick="@{()->sub.gotoBack()}"
+                android:src="@drawable/left" />
+
             <TextView
-                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="投稿"
-                android:textStyle="bold"
-                android:textSize="@dimen/dimen18"
                 android:layout_centerInParent="true"
-                android:textColor="@color/colorTitleText"/>
+                android:gravity="center"
+                android:text="投稿"
+                android:textColor="@color/colorTitleText"
+                android:textSize="@dimen/dimen18"
+                android:textStyle="bold" />
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="投稿记录"
                 android:layout_alignParentRight="true"
-                android:background="@android:color/transparent"/>
+                android:background="@android:color/transparent"
+                android:onClick="@{()->sub.gotoSubmissionHis()}"
+                android:text="投稿记录" />
         </RelativeLayout>
 
     </LinearLayout>

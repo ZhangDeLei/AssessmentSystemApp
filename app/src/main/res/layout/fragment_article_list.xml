@@ -1,47 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+
+        <import type="com.managerlee.assessment.viewModel.ArticleListViewModel" />
+
+        <variable
+            name="viewModel"
+            type="ArticleListViewModel" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_type_list"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen50"
-            android:orientation="horizontal"
             android:background="@color/gray"
-            android:paddingTop="@dimen/dimen10"
+            android:orientation="horizontal"
             android:paddingBottom="@dimen/dimen10"
-            ></android.support.v7.widget.RecyclerView>
+            android:paddingTop="@dimen/dimen10"></android.support.v7.widget.RecyclerView>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen60"
             android:orientation="horizontal"
+            android:paddingBottom="@dimen/dimen10"
             android:paddingLeft="@dimen/dimen20"
             android:paddingRight="@dimen/dimen20"
-            android:paddingTop="@dimen/dimen10"
-            android:paddingBottom="@dimen/dimen10">
+            android:paddingTop="@dimen/dimen10">
+
             <EditText
-                android:singleLine="true"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/search_edittext"
                 android:drawableLeft="@drawable/search"
-                android:paddingLeft="@dimen/dimen10" />
+                android:paddingLeft="@dimen/dimen10"
+                android:singleLine="true" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
+                android:onClick="@{()->viewModel.gotoSubmission()}"
                 android:text="投稿" />
         </LinearLayout>
+
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipeRegreshLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_content"
                 android:layout_width="match_parent"

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="com.managerlee.assessment.bean.SubmissionBean"/>
+        <variable
+            name="sub"
+            type="SubmissionBean"/>
+    </data>
+    <LinearLayout
+        android:id="@+id/ll_submission_his"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen80"
+        android:gravity="center|left">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/word"
+            android:layout_marginLeft="@dimen/dimen10"/>
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="稿件名称卢卡斯大家来反馈"
+            android:layout_marginLeft="@dimen/dimen10"
+            android:textColor="@android:color/black"
+            android:singleLine="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2018/04/29 00:00:00"
+            android:singleLine="true"
+            android:layout_marginLeft="@dimen/dimen10"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen10"
+            android:layout_marginRight="@dimen/dimen10"
+            android:text="未通过"/>
+    </LinearLayout>
+</layout>

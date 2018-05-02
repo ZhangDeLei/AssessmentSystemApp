@@ -33,14 +33,17 @@
             android:paddingRight="@dimen/dimen20"
             android:paddingTop="@dimen/dimen10">
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/search_edittext"
                 android:drawableLeft="@drawable/search"
+                android:onClick="@{()->viewModel.showSearchDialog()}"
                 android:paddingLeft="@dimen/dimen10"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:gravity="center|left"
+                android:text="@{viewModel.titleOf}"/>
 
             <Button
                 android:layout_width="wrap_content"

@@ -3,6 +3,7 @@ package com.managerlee.assessment.view;
 import android.databinding.DataBindingUtil;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
 
 import com.managerlee.assessment.R;
 import com.managerlee.assessment.adapter.ArticleSubmissionHisAdapter;
@@ -29,13 +30,16 @@ public class ArticleSubmissionHisActivity extends BaseActivity implements SwipeR
 
     @Override
     public void bindData() {
-        adapter = new ArticleSubmissionHisAdapter();
+        adapter = new ArticleSubmissionHisAdapter(this);
         viewModel = new ArticleSubmissionHisViewModel(this, adapter, this);
-        mBinding.setViewModel(viewModel);
 
+        LinearLayoutManager listLinearLayoutManager = new LinearLayoutManager(this);
+        listLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mBinding.recyclerView.setLayoutManager(listLinearLayoutManager);
         mBinding.recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         mBinding.recyclerView.setAdapter(adapter);
         mBinding.swipeRegreshLayout.setOnRefreshListener(this);
+        mBinding.setViewModel(viewModel);
     }
 
     @Override

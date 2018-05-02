@@ -2,15 +2,19 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <import type="com.managerlee.assessment.bean.SubmissionBean"/>
+        <import type="com.managerlee.assessment.adapter.ArticleSubmissionHisAdapter.ItemSubmissionService"/>
         <variable
             name="sub"
             type="SubmissionBean"/>
+        <variable
+            name="service"
+            type="ItemSubmissionService"/>
     </data>
     <LinearLayout
         android:id="@+id/ll_submission_his"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen80"
+        android:layout_height="@dimen/dimen70"
         android:gravity="center|left">
         <ImageView
             android:layout_width="wrap_content"
@@ -21,21 +25,22 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="稿件名称卢卡斯大家来反馈"
+            android:text="@{sub.title}"
             android:layout_marginLeft="@dimen/dimen10"
             android:textColor="@android:color/black"
             android:singleLine="true"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2018/04/29 00:00:00"
+            android:text="@{sub.createTime}"
             android:singleLine="true"
             android:layout_marginLeft="@dimen/dimen10"/>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dimen60"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dimen10"
             android:layout_marginRight="@dimen/dimen10"
-            android:text="未通过"/>
+            android:textColor="@{service.getProcessColor(sub.processCode)}"
+            android:text="@{sub.processName}"/>
     </LinearLayout>
 </layout>

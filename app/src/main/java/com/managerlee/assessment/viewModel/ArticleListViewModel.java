@@ -8,6 +8,7 @@ import com.managerlee.assessment.adapter.ArticleListAdapter;
 import com.managerlee.assessment.adapter.ArticleTypeAdapter;
 import com.managerlee.assessment.bean.ArticleBean;
 import com.managerlee.assessment.bean.ArticleLevelBean;
+import com.managerlee.assessment.dialog.SearchDialog;
 import com.managerlee.assessment.framework.base.BaseViewModel;
 import com.managerlee.assessment.framework.dialog.ProgressHelper;
 import com.managerlee.assessment.framework.http.event.CallBackListener;
@@ -55,14 +56,14 @@ public class ArticleListViewModel extends BaseViewModel {
      * 初始化数据
      */
     private void initData() {
-        getArticleLevelList();
+        getArticleLevelList("");
     }
 
     /**
      * 获取文章分类列表
      */
-    private void getArticleLevelList() {
-        articleLevelView.getArticleLevelList(PerferenceConfig.CompanyId.get(), "", new CallBackListener<List<ArticleLevelBean>>() {
+    private void getArticleLevelList(String Name) {
+        articleLevelView.getArticleLevelList(PerferenceConfig.CompanyId.get(), Name, new CallBackListener<List<ArticleLevelBean>>() {
             @Override
             public void onSuccess(List<ArticleLevelBean> data) {
                 typeAdapter.setData(data);
@@ -97,6 +98,7 @@ public class ArticleListViewModel extends BaseViewModel {
         ArticleParam param = new ArticleParam();
         param.setLevelId(bean.getId());
         param.setCompanyId(PerferenceConfig.CompanyId.get());
+        param.setTitle(titleOf.get());
         param.setPageSize(Page.PageSize);
         param.setCurPage(CurPage);
         articleView.getArticleList(param, new CallBackListener<List<ArticleBean>>() {
@@ -123,5 +125,24 @@ public class ArticleListViewModel extends BaseViewModel {
      */
     public void gotoSubmission() {
         context.startActivity(new Intent(context, ArticleSubmissionActivity.class));
+    }
+
+    /**
+     * 显示搜索弹框
+     */
+    public void showSearchDialog() {
+        final SearchDialog dialog = new SearchDialog(context);
+        dialog.setSearchWhere(titleOf.get());
+        dialog.setListener(new SearchDialog.OnClickListener() {
+            @Override
+            public void onConfirm(String content) {
+                titleOf.set(content);
+                ArticleLevelBean bean = typeAdapter.getItem(typeAdapter.getCurrentPosition());
+                CurPage = 1;
+                getArticleList(bean, CurPage);
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 }

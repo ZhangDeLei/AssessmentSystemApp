@@ -13,7 +13,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/gray">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -48,6 +49,133 @@
                 android:onClick="@{()->sub.gotoSubmissionHis()}"
                 android:text="投稿记录" />
         </RelativeLayout>
-
+        <LinearLayout
+            android:layout_marginTop="@dimen/dimen10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@android:color/white">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen50"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen5"
+                android:layout_marginTop="@dimen/dimen5">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="标         题："
+                    android:textColor="@android:color/black"/>
+                <EditText
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/login_edittext"
+                    android:layout_marginRight="@dimen/dimen24"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen50"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen5"
+                android:layout_marginTop="@dimen/dimen5">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="选择级别："
+                    android:textColor="@android:color/black"/>
+                <TextView
+                    android:paddingRight="@dimen/dimen10"
+                    android:drawableRight="@drawable/down"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/login_edittext"
+                    android:layout_marginRight="@dimen/dimen24"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen50"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen5"
+                android:layout_marginTop="@dimen/dimen5">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="稿         件："
+                    android:textColor="@android:color/black"/>
+                <Button
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/cancel_button"
+                    android:text="上传附件"
+                    android:textColor="@color/grey"
+                    android:layout_marginRight="@dimen/dimen24"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="2"
+                    android:background="@color/gray"
+                    android:layout_marginRight="@dimen/dimen30"
+                    android:layout_marginTop="@dimen/dimen5"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dimen60"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:layout_marginRight="@dimen/dimen24"
+                    android:layout_marginTop="@dimen/dimen10"
+                    android:layout_marginBottom="@dimen/dimen10"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/word"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginRight="@dimen/dimen10"
+                        android:layout_marginLeft="@dimen/dimen10"
+                        android:text="稿件名称"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen50"
+            android:layout_margin="@dimen/dimen10"
+            android:background="@drawable/login_button"
+            android:text="提交"
+            android:textColor="@android:color/white"/>
     </LinearLayout>
 </layout>

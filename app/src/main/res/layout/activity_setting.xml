@@ -22,221 +22,251 @@
             android:gravity="center|left">
 
             <ImageButton
-                android:onClick="@{()->viewModel.gotoBack()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:background="@android:color/transparent"
-                android:src="@drawable/left"
-                android:layout_centerVertical="true"/>
+                android:onClick="@{()->viewModel.gotoBack()}"
+                android:src="@drawable/left" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
                 android:gravity="center"
                 android:text="@string/setting"
                 android:textColor="@color/colorTitleText"
                 android:textSize="@dimen/dimen18"
-                android:textStyle="bold"
-                android:layout_centerInParent="true"/>
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <LinearLayout
-            android:background="@android:color/white"
-            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@android:color/white"
             android:gravity="center"
             android:orientation="vertical">
+
             <ImageView
                 android:layout_width="@dimen/dimen60"
                 android:layout_height="@dimen/dimen60"
-                android:src="@drawable/photo_default"/>
+                android:src="@drawable/photo_default" />
+
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen10"
+                android:text="@{viewModel.userName}"
                 android:textColor="@android:color/black"
-                android:textStyle="bold"
                 android:textSize="@dimen/dimen18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{viewModel.userName}"/>
+                android:textStyle="bold" />
+
             <TextView
-                android:layout_marginTop="@dimen/dimen5"
-                android:textColor="@color/colorTitleText"
-                android:textSize="@dimen/dimen16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{viewModel.teamName}"/>
+                android:layout_marginTop="@dimen/dimen5"
+                android:text="@{viewModel.teamName}"
+                android:textColor="@color/colorTitleText"
+                android:textSize="@dimen/dimen16" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen100"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
+
                 <LinearLayout
-                    android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
+                        android:text="@{viewModel.totalSub}"
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/dimen18"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorTitleText"
+                        android:layout_marginTop="@dimen/dimen10"
                         android:text="@string/set_suc_submission"
-                        android:layout_marginTop="@dimen/dimen10"/>
+                        android:textColor="@color/colorTitleText" />
                 </LinearLayout>
+
                 <View
                     android:layout_width="1dp"
                     android:layout_height="@dimen/dimen50"
-                    android:background="@color/gray"/>
+                    android:background="@color/gray" />
+
                 <LinearLayout
-                    android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="110"
+                        android:text="@{viewModel.totalFollow}"
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/dimen18"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorTitleText"
+                        android:layout_marginTop="@dimen/dimen10"
                         android:text="@string/set_follow"
-                        android:layout_marginTop="@dimen/dimen10"/>
+                        android:textColor="@color/colorTitleText" />
                 </LinearLayout>
+
                 <View
                     android:layout_width="1dp"
                     android:layout_height="@dimen/dimen50"
-                    android:background="@color/gray"/>
+                    android:background="@color/gray" />
+
                 <LinearLayout
-                    android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="10"
+                        android:text="@{viewModel.totalTask}"
                         android:textColor="@android:color/black"
                         android:textSize="@dimen/dimen18"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorTitleText"
+                        android:layout_marginTop="@dimen/dimen10"
                         android:text="@string/set_suc_task"
-                        android:layout_marginTop="@dimen/dimen10"/>
+                        android:textColor="@color/colorTitleText" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/gray"/>
+            android:background="@color/gray" />
+
         <LinearLayout
-            android:layout_weight="0.8"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_weight="0.8"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen50"
                 android:background="@android:color/white"
-                android:orientation="horizontal"
                 android:gravity="center"
-                android:onClick="@{()->viewModel.gotoAccounBind()}">
+                android:onClick="@{()->viewModel.gotoAccounBind()}"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:paddingLeft="@dimen/dimen20"
                     android:text="@string/set_acount_bind"
                     android:textColor="@android:color/black"
-                    android:paddingLeft="@dimen/dimen20"
-                    android:textSize="@dimen/dimen18"/>
+                    android:textSize="@dimen/dimen18" />
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/right"
-                    android:layout_marginRight="@dimen/dimen20"/>
+                    android:layout_marginRight="@dimen/dimen20"
+                    android:src="@drawable/right" />
             </LinearLayout>
+
             <View
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/gray"/>
+                android:background="@color/gray"
+                android:visibility="gone" />
+
             <LinearLayout
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen50"
                 android:background="@android:color/white"
+                android:gravity="center"
                 android:orientation="horizontal"
-                android:gravity="center">
+                android:visibility="gone">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:paddingLeft="@dimen/dimen20"
                     android:text="@string/set_ser"
                     android:textColor="@android:color/black"
-                    android:paddingLeft="@dimen/dimen20"
-                    android:textSize="@dimen/dimen18"/>
+                    android:textSize="@dimen/dimen18" />
+
                 <ToggleButton
-                    android:background="@drawable/tg_select"
                     android:layout_width="@dimen/dimen50"
                     android:layout_height="@dimen/dimen24"
                     android:layout_marginRight="@dimen/dimen20"
+                    android:background="@drawable/tg_select"
                     android:textOff=""
-                    android:textOn=""/>
+                    android:textOn="" />
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/gray"/>
+                android:background="@color/gray" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen50"
                 android:background="@android:color/white"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:paddingLeft="@dimen/dimen20"
                     android:text="@string/set_ver"
                     android:textColor="@android:color/black"
-                    android:paddingLeft="@dimen/dimen20"
-                    android:textSize="@dimen/dimen18"/>
+                    android:textSize="@dimen/dimen18" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/set_curver"
-                    android:textColor="@color/colorTitleText"/>
+                    android:textColor="@color/colorTitleText" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.versionCode}"
-                    android:layout_marginRight="@dimen/dimen20"/>
+                    android:layout_marginRight="@dimen/dimen20"
+                    android:text="@{viewModel.versionCode}" />
             </LinearLayout>
         </LinearLayout>
 
         <Button
-            android:layout_margin="10dp"
-            android:textSize="@dimen/dimen18"
-            android:textColor="@android:color/white"
-            android:background="@drawable/login_button"
-            android:text="@string/exit"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen50" />
+            android:layout_height="@dimen/dimen50"
+            android:layout_margin="10dp"
+            android:background="@drawable/login_button"
+            android:onClick="@{()->viewModel.gotoLogin()}"
+            android:text="@string/exit"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/dimen18" />
     </LinearLayout>
 </layout>

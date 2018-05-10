@@ -5,11 +5,11 @@ package com.managerlee.assessment.constant;
  */
 
 public class URLConstant {
-    public static final String BASE_URL = "http://192.168.43.88:8080/lamj/"; //基础地址
+    public static final String BASE_URL = "http://192.168.1.117:8080/lamj/"; //基础地址
     public static final String GetNewVersion = "api/appManager/getAppByNewForAndroid"; //获取最新的版本信息
     public static final String Login_URL = "api/auth/login"; //登陆
     //用户
-//    public static final String User_
+    public static final String User_GetUserStatictis = "api/user/getUserStatictis";//获取用户统计信息
 
     //字典值
     public static final String Dict_GetDictListByEnName = "api/dictionary/getDictListByEnName"; //根据英文名称获取字典值列表

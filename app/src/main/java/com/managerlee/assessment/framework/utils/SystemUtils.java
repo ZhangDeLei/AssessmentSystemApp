@@ -12,6 +12,7 @@ public class SystemUtils {
 
     /**
      * 获取当前应用的版本号
+     *
      * @param context
      * @return
      */
@@ -24,6 +25,23 @@ public class SystemUtils {
             e.printStackTrace();
         }
         return versionCode;
+    }
+
+    /**
+     * 获取当前应用的版本名称
+     *
+     * @param context
+     * @return
+     */
+    public static String currentVersionName(Context context) {
+        String versionName = "";
+        try {
+            PackageInfo pi = context.getApplicationContext().getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            versionName = pi.versionName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return versionName;
     }
 
 }

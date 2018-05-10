@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
+
+        <import type="com.managerlee.assessment.bean.TaskBean" />
+
+        <import type="com.managerlee.assessment.adapter.TaskAdapter.ClickEvent" />
+
         <variable
             name="task"
-            type="com.managerlee.assessment.bean.TaskBean"/>
+            type="TaskBean" />
+
+        <variable
+            name="click"
+            type="ClickEvent" />
     </data>
+
     <LinearLayout
         android:id="@+id/itemView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen5"
         android:background="@android:color/white"
+        android:onClick="@{()->click.gotoTaskDetail(task)}"
         android:orientation="horizontal"
-        android:padding="@dimen/dimen5"
-        android:layout_marginBottom="@dimen/dimen5">
+        android:padding="@dimen/dimen5">
 
         <TextView
             android:layout_width="@dimen/dimen80"
@@ -29,29 +41,32 @@
             android:orientation="vertical"
             android:paddingLeft="@dimen/dimen5"
             android:paddingRight="@dimen/dimen5">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:text="@{task.title}"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/dimen16"/>
+                android:textSize="@dimen/dimen16" />
+
             <TextView
-                android:layout_weight="1"
-                android:gravity="center|left"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center|left"
                 android:singleLine="true"
                 android:text="@{task.typeName}"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/dimen16"/>
+                android:textSize="@dimen/dimen16" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:text="@{task.createDate}"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/dimen16"/>
+                android:textSize="@dimen/dimen16" />
         </LinearLayout>
 
         <LinearLayout

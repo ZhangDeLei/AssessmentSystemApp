@@ -39,7 +39,7 @@ public class FragmentTask extends BaseFragment implements SwipeRefreshLayout.OnR
 
     @Override
     public void bindData() {
-        mAdapter = new TaskAdapter();
+        mAdapter = new TaskAdapter(getContext());
         mBinding.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         mBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
         mBinding.recyclerView.setAdapter(mAdapter);

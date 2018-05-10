@@ -1,28 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.managerlee.assessment.bean.TaskBean" />
+
+        <import type="com.managerlee.assessment.viewModel.TaskDetailViewModel" />
+
+        <variable
+            name="task"
+            type="TaskBean" />
+
+        <variable
+            name="viewModel"
+            type="TaskDetailViewModel" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/gray">
+        android:background="@color/gray"
+        android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen50"
-            android:gravity="center|left"
             android:background="@drawable/title_bg">
+
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/left"
-                android:background="@android:color/transparent"/>
+                android:background="@android:color/transparent"
+                android:layout_centerVertical="true"
+                android:onClick="@{()->viewModel.gotoBack()}"
+                android:src="@drawable/left" />
+
             <TextView
-                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/task_tip"
+                android:textColor="@color/colorTitleText"
+                android:textSize="@dimen/dimen18"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen5"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen10">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="任务"
-                android:textStyle="bold"
-                android:textSize="@dimen/dimen18"
-                android:textColor="@color/colorTitleText"/>
-        </RelativeLayout>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@{task.title}"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/dimen18" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen10"
+                    android:text="@{task.execTypeName}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen10"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/task_type" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{task.typeName}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen10"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/task_need" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{task.comment}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen10"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/task_expired" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{task.expireDate}" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen40"
+            android:layout_marginTop="@dimen/dimen5"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:text="@string/task_content"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/dimen18" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"></WebView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen70"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen16">
+
+            <EditText
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/search_edittext"
+                android:hint="@string/task_write"
+                android:paddingLeft="@dimen/dimen20"
+                android:paddingRight="@dimen/dimen20" />
+
+            <ImageView
+                android:onClick="@{()->viewModel.gotoCommentList(task)}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dimen20"
+                android:src="@drawable/eva" />
+
+            <TextView
+                android:onClick="@{()->viewModel.gotoCommentList(task)}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="365"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dimen20"
+                android:paddingRight="@dimen/dimen20"
+                android:text="@string/task_share" />
+        </LinearLayout>
     </LinearLayout>
 </layout>

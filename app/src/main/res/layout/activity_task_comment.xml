@@ -20,10 +20,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="热门跟帖"
+                android:text="@string/release"
                 android:textColor="@color/colorTitleText"
                 android:textSize="@dimen/dimen18"
                 android:textStyle="bold" />
         </RelativeLayout>
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/swipeRegreshLayout"
+            android:background="@color/gray">
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/recyclerView"></android.support.v7.widget.RecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen60"
+            android:padding="@dimen/dimen10"
+            android:background="@android:color/white">
+            <EditText
+                android:background="@drawable/search_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/task_write"
+                android:paddingLeft="@dimen/dimen10"
+                android:paddingRight="@dimen/dimen10"
+                android:singleLine="true"/>
+        </LinearLayout>
     </LinearLayout>
 </layout>

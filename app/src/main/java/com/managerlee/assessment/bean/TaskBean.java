@@ -1,10 +1,12 @@
 package com.managerlee.assessment.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by anins on 2018/3/27.
  */
 
-public class TaskBean {
+public class TaskBean implements Serializable {
 
     /**
      * id : 6

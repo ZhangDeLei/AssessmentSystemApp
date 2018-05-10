@@ -2,7 +2,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
+        <import type="com.managerlee.assessment.viewModel.AccountBindViewModel"/>
+        <variable
+            name="viewModel"
+            type="AccountBindViewModel"/>
     </data>
 
     <LinearLayout
@@ -13,28 +16,35 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen50"
-            android:background="@drawable/title_bg"
-            android:gravity="center|left">
+            android:background="@drawable/title_bg">
 
             <ImageButton
+                android:onClick="@{()->viewModel.gotoBack()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:src="@drawable/left" />
+                android:src="@drawable/left"
+                android:layout_centerVertical="true"/>
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="账号绑定"
+                android:text="@string/set_acount_bind"
                 android:textColor="@color/colorTitleText"
                 android:textSize="@dimen/dimen18"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_centerInParent="true"/>
         </RelativeLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView"
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRegreshLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+            android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
     </LinearLayout>
 </layout>

@@ -1,10 +1,14 @@
 package com.managerlee.assessment.view;
 
 import android.databinding.DataBindingUtil;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.managerlee.assessment.R;
+import com.managerlee.assessment.bean.TaskBean;
 import com.managerlee.assessment.databinding.ActivityTaskDetailBinding;
 import com.managerlee.assessment.framework.base.BaseActivity;
+import com.managerlee.assessment.viewModel.TaskDetailViewModel;
 
 /**
  * 任务详情
@@ -13,6 +17,7 @@ import com.managerlee.assessment.framework.base.BaseActivity;
 
 public class TaskDetailActivity extends BaseActivity {
     private ActivityTaskDetailBinding mBinding;
+    private TaskDetailViewModel viewModel;
 
     @Override
     public void bindLayout() {
@@ -21,6 +26,18 @@ public class TaskDetailActivity extends BaseActivity {
 
     @Override
     public void bindData() {
-
+        TaskBean bean = (TaskBean) getIntent().getSerializableExtra("task");
+        viewModel = new TaskDetailViewModel(this);
+        mBinding.webView.loadUrl(bean.getUrl());
+        mBinding.webView.getSettings().setJavaScriptEnabled(true);
+        mBinding.webView.setWebViewClient(new WebViewClient(){
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return true;
+            }
+        });
+        mBinding.setTask(bean);
+        mBinding.setViewModel(viewModel);
     }
 }

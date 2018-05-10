@@ -1,6 +1,7 @@
 package com.managerlee.assessment.model.impl;
 
 import com.managerlee.assessment.bean.NewBean;
+import com.managerlee.assessment.bean.UserNewAuthBean;
 import com.managerlee.assessment.framework.http.RetrofitHelper;
 import com.managerlee.assessment.framework.http.data.ResponseCode;
 import com.managerlee.assessment.framework.http.data.ResponseData;
@@ -51,6 +52,34 @@ public class NewAuthViewImpl implements INewAuthView {
                     @Override
                     public void onComplete() {
                         listCallBackListener.onCompleted();
+                    }
+                });
+    }
+
+    @Override
+    public void getUserNewAuthList(final CallBackListener<List<UserNewAuthBean>> listener) {
+        service.getUserNewAuthList(PerferenceConfig.CompanyId.get(),
+                PerferenceConfig.UserId.get())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new DisposableObserver<ResponseData<List<UserNewAuthBean>>>() {
+                    @Override
+                    public void onNext(ResponseData<List<UserNewAuthBean>> response) {
+                        if (response.getCode() == ResponseCode.SUCCESS) {
+                            listener.onSuccess(response.getData());
+                        } else {
+                            listener.onError(response.getMsg());
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        listener.onError(e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        listener.onCompleted();
                     }
                 });
     }

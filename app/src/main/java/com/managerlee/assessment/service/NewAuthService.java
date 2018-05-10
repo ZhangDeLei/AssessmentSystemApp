@@ -1,6 +1,7 @@
 package com.managerlee.assessment.service;
 
 import com.managerlee.assessment.bean.NewBean;
+import com.managerlee.assessment.bean.UserNewAuthBean;
 import com.managerlee.assessment.constant.URLConstant;
 import com.managerlee.assessment.framework.http.data.ResponseData;
 
@@ -24,4 +25,14 @@ public interface NewAuthService {
      */
     @GET(URLConstant.NewAuth_GetNewAuthListByCompanyId)
     Observable<ResponseData<List<NewBean>>> getNewAuthList(@Query("CompanyId") int CompanyId);
+
+    /**
+     * 获取授权的新闻客户端列表
+     * @param CompanyId
+     * @param UserId
+     * @return
+     */
+    @GET(URLConstant.NewAuth_GetUserNewAuthList)
+    Observable<ResponseData<List<UserNewAuthBean>>> getUserNewAuthList(@Query("CompanyId") int CompanyId,
+                                                                       @Query("UserId") int UserId);
 }

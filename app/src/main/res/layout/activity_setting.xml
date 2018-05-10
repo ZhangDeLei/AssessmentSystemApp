@@ -22,19 +22,22 @@
             android:gravity="center|left">
 
             <ImageButton
+                android:onClick="@{()->viewModel.gotoBack()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:src="@drawable/left" />
+                android:src="@drawable/left"
+                android:layout_centerVertical="true"/>
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="设置"
+                android:text="@string/setting"
                 android:textColor="@color/colorTitleText"
                 android:textSize="@dimen/dimen18"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_centerInParent="true"/>
         </RelativeLayout>
 
         <LinearLayout
@@ -55,14 +58,14 @@
                 android:textSize="@dimen/dimen18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="用户名"/>
+                android:text="@{viewModel.userName}"/>
             <TextView
                 android:layout_marginTop="@dimen/dimen5"
                 android:textColor="@color/colorTitleText"
                 android:textSize="@dimen/dimen16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="跟帖局科员"/>
+                android:text="@{viewModel.teamName}"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen100"
@@ -85,7 +88,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorTitleText"
-                        android:text="成功投稿"
+                        android:text="@string/set_suc_submission"
                         android:layout_marginTop="@dimen/dimen10"/>
                 </LinearLayout>
                 <View
@@ -109,7 +112,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorTitleText"
-                        android:text="跟帖"
+                        android:text="@string/set_follow"
                         android:layout_marginTop="@dimen/dimen10"/>
                 </LinearLayout>
                 <View
@@ -133,7 +136,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorTitleText"
-                        android:text="完成任务"
+                        android:text="@string/set_suc_task"
                         android:layout_marginTop="@dimen/dimen10"/>
                 </LinearLayout>
             </LinearLayout>
@@ -152,12 +155,13 @@
                 android:layout_height="@dimen/dimen50"
                 android:background="@android:color/white"
                 android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:onClick="@{()->viewModel.gotoAccounBind()}">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="账号绑定"
+                    android:text="@string/set_acount_bind"
                     android:textColor="@android:color/black"
                     android:paddingLeft="@dimen/dimen20"
                     android:textSize="@dimen/dimen18"/>
@@ -168,10 +172,12 @@
                     android:layout_marginRight="@dimen/dimen20"/>
             </LinearLayout>
             <View
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/gray"/>
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen50"
                 android:background="@android:color/white"
@@ -181,7 +187,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="安全中心"
+                    android:text="@string/set_ser"
                     android:textColor="@android:color/black"
                     android:paddingLeft="@dimen/dimen20"
                     android:textSize="@dimen/dimen18"/>
@@ -207,15 +213,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="版本号"
+                    android:text="@string/set_ver"
                     android:textColor="@android:color/black"
                     android:paddingLeft="@dimen/dimen20"
                     android:textSize="@dimen/dimen18"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="当前版本 1.0.0"
-                    android:textColor="@color/colorTitleText"
+                    android:text="@string/set_curver"
+                    android:textColor="@color/colorTitleText"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.versionCode}"
                     android:layout_marginRight="@dimen/dimen20"/>
             </LinearLayout>
         </LinearLayout>
@@ -225,7 +235,7 @@
             android:textSize="@dimen/dimen18"
             android:textColor="@android:color/white"
             android:background="@drawable/login_button"
-            android:text="退出"
+            android:text="@string/exit"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen50" />
     </LinearLayout>

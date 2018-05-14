@@ -1,10 +1,12 @@
 package com.managerlee.assessment.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by anins on 2018/4/28.
  */
 
-public class ProcessBean {
+public class ProcessBean implements Serializable{
 
     /**
      * id : 27
@@ -28,7 +30,7 @@ public class ProcessBean {
     private String processCode;
     private String processName;
     private int orderNum;
-    private Object comment;
+    private String comment;
 
     public int getId() {
         return id;
@@ -102,11 +104,11 @@ public class ProcessBean {
         this.orderNum = orderNum;
     }
 
-    public Object getComment() {
+    public String getComment() {
         return comment;
     }
 
-    public void setComment(Object comment) {
+    public void setComment(String comment) {
         this.comment = comment;
     }
 }

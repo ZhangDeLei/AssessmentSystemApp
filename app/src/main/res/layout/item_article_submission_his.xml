@@ -1,46 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
-        <import type="com.managerlee.assessment.bean.SubmissionBean"/>
-        <import type="com.managerlee.assessment.adapter.ArticleSubmissionHisAdapter.ItemSubmissionService"/>
+
+        <import type="com.managerlee.assessment.bean.SubmissionBean" />
+
+        <import type="com.managerlee.assessment.adapter.ArticleSubmissionHisAdapter.ItemSubmissionService" />
+
+        <import type="com.managerlee.assessment.adapter.ArticleSubmissionHisAdapter.ClickEvent" />
+
+        <variable
+            name="click"
+            type="ClickEvent" />
+
         <variable
             name="sub"
-            type="SubmissionBean"/>
+            type="SubmissionBean" />
+
         <variable
             name="service"
-            type="ItemSubmissionService"/>
+            type="ItemSubmissionService" />
     </data>
+
     <LinearLayout
         android:id="@+id/ll_submission_his"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen70"
-        android:gravity="center|left">
+        android:gravity="center|left"
+        android:onLongClick="@{()->click.onLongClick(sub)}"
+        android:onClick="@{()->click.onClick(sub)}"
+        android:orientation="horizontal">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/word"
-            android:layout_marginLeft="@dimen/dimen10"/>
+            android:layout_marginLeft="@dimen/dimen10"
+            android:src="@drawable/word" />
+
         <TextView
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@{sub.title}"
             android:layout_marginLeft="@dimen/dimen10"
-            android:textColor="@android:color/black"
-            android:singleLine="true"/>
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:text="@{sub.title}"
+            android:textColor="@android:color/black" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{sub.createTime}"
+            android:layout_marginLeft="@dimen/dimen10"
             android:singleLine="true"
-            android:layout_marginLeft="@dimen/dimen10"/>
+            android:text="@{sub.createTime}" />
+
         <TextView
             android:layout_width="@dimen/dimen60"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dimen10"
             android:layout_marginRight="@dimen/dimen10"
-            android:textColor="@{service.getProcessColor(sub.processCode)}"
-            android:text="@{sub.processName}"/>
+            android:text="@{sub.processName}"
+            android:textColor="@{service.getProcessColor(sub.processCode)}" />
     </LinearLayout>
 </layout>

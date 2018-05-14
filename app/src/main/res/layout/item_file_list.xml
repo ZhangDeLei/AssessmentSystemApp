@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="java.io.File" />
+        <import type="com.managerlee.assessment.adapter.FileListAdapter.ClickEvent"/>
+        <variable
+            name="file"
+            type="File" />
+        <variable
+            name="click"
+            type="ClickEvent"/>
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ll_item"
+        android:onClick="@{()->click.onItemClick(file)}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen40"
+            android:gravity="center|left"
+            android:paddingLeft="@dimen/dimen10"
+            android:paddingRight="@dimen/dimen10"
+            android:singleLine="true"
+            android:text="@{file.name}" />
+    </LinearLayout>
+</layout>

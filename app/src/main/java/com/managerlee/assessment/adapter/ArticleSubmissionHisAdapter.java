@@ -18,8 +18,10 @@ import com.managerlee.assessment.framework.base.BaseAdapter;
 public class ArticleSubmissionHisAdapter extends BaseAdapter<ArticleSubmissionHisAdapter.Holder, SubmissionBean> {
     private ItemSubmissionService service;
     private Context context;
+    private ClickEvent clickEvent;
 
     public ArticleSubmissionHisAdapter(Context context) {
+        this.clickEvent = new ClickEvent();
         this.context = context;
         this.service = new ItemSubmissionService();
     }
@@ -29,6 +31,7 @@ public class ArticleSubmissionHisAdapter extends BaseAdapter<ArticleSubmissionHi
         SubmissionBean bean = this.data.get(position);
         holder.mBinding.setSub(bean);
         holder.mBinding.setService(service);
+        holder.mBinding.setClick(clickEvent);
     }
 
     @Override
@@ -60,5 +63,32 @@ public class ArticleSubmissionHisAdapter extends BaseAdapter<ArticleSubmissionHi
             }
             return textColor;
         }
+    }
+
+    public class ClickEvent {
+        public void onClick(SubmissionBean bean) {
+            if (listener != null) {
+                listener.onItem(bean);
+            }
+        }
+
+        public boolean onLongClick(SubmissionBean bean) {
+            if (listener != null) {
+                listener.onLongItem(bean);
+            }
+            return true;
+        }
+    }
+
+    private OnItemListener listener;
+
+    public interface OnItemListener {
+        void onItem(SubmissionBean bean);
+
+        void onLongItem(SubmissionBean bean);
+    }
+
+    public void setListener(OnItemListener listener) {
+        this.listener = listener;
     }
 }

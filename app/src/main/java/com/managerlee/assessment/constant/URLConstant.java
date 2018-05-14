@@ -35,10 +35,15 @@ public class URLConstant {
     //投稿管理
     public static final String Sub_Insert = "api/submission/insert";//新增投稿记录
     public static final String Sub_GetSubmissionListByUserId = "api/submission/getSubmissionListByUserId";//获取用户的投稿记录
-
+    public static final String Sub_Update = "api/submission/update";//更新投稿信息
+    public static final String Sub_GetSubmissionById = "api/submission/getSubmissionById";//根据ID获取投稿详细信息
+    public static final String Sub_Delete = "api/submission/delete";//删除投稿信息
     //评论管理
     public static final String Comment_GetUserCommentList = "api/userComment/getUserCommentList";//获取评论列表
     public static final String Comment_Insert = "api/userComment/insertUserComment"; //新增评论
     public static final String Comment_Delete = "api/userComment/deleteUserComment"; //删除评论
     public static final String Comment_Update = "api/userComment/updateUserComment"; //更新评论
+
+    //文件管理
+    public static final String File_Upload = "api/file/fileUpload";//文件上传
 }

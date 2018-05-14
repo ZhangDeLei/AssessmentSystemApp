@@ -1,10 +1,12 @@
 package com.managerlee.assessment.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by anins on 2018/4/28.
  */
 
-public class SubmissionBean {
+public class SubmissionBean implements Serializable{
 
     /**
      * id : 16
@@ -38,8 +40,8 @@ public class SubmissionBean {
     private int processId;
     private String processCode;
     private String processName;
-    private Object levelId;
-    private Object levelName;
+    private int levelId;
+    private String levelName;
     private ProcessBean process;
 
     public int getId() {
@@ -146,19 +148,19 @@ public class SubmissionBean {
         this.processName = processName;
     }
 
-    public Object getLevelId() {
+    public int getLevelId() {
         return levelId;
     }
 
-    public void setLevelId(Object levelId) {
+    public void setLevelId(int levelId) {
         this.levelId = levelId;
     }
 
-    public Object getLevelName() {
+    public String getLevelName() {
         return levelName;
     }
 
-    public void setLevelName(Object levelName) {
+    public void setLevelName(String levelName) {
         this.levelName = levelName;
     }
 

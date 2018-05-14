@@ -5,6 +5,7 @@ import android.app.Activity;
 import com.managerlee.assessment.adapter.ArticleSubmissionHisAdapter;
 import com.managerlee.assessment.bean.SubmissionBean;
 import com.managerlee.assessment.framework.base.BaseViewModel;
+import com.managerlee.assessment.framework.dialog.ProgressHelper;
 import com.managerlee.assessment.framework.http.event.CallBackListener;
 import com.managerlee.assessment.framework.listener.CompletedListener;
 import com.managerlee.assessment.framework.page.Page;
@@ -59,5 +60,33 @@ public class ArticleSubmissionHisViewModel extends BaseViewModel {
                         listener.onCompleted();
                     }
                 });
+    }
+
+    /**
+     * 删除
+     *
+     * @param Id
+     */
+    public void delete(int Id) {
+        ProgressHelper.init().show(activity, "正在删除...");
+        submissionView.deleteSubmission(Id, new CallBackListener<String>() {
+            @Override
+            public void onSuccess(String data) {
+                CurPage = 1;
+                getData(CurPage);
+                ToastUtils.show("删除成功");
+            }
+
+            @Override
+            public void onError(String msg) {
+                ToastUtils.show(msg);
+                ProgressHelper.init().close();
+            }
+
+            @Override
+            public void onCompleted() {
+                ProgressHelper.init().close();
+            }
+        });
     }
 }

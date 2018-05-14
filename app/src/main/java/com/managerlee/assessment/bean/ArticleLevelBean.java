@@ -4,7 +4,7 @@ package com.managerlee.assessment.bean;
  * Created by anins on 2018/4/28.
  */
 
-public class ArticleLevelBean {
+public class ArticleLevelBean{
 
     /**
      * id : 2

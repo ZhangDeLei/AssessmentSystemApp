@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:gravity="center"
-                android:text="投稿"
+                android:text="@string/sub_title"
                 android:textColor="@color/colorTitleText"
                 android:textSize="@dimen/dimen18"
                 android:textStyle="bold" />
@@ -47,7 +47,7 @@
                 android:layout_alignParentRight="true"
                 android:background="@android:color/transparent"
                 android:onClick="@{()->sub.gotoSubmissionHis()}"
-                android:text="投稿记录" />
+                android:text="@string/sub_his" />
         </RelativeLayout>
         <LinearLayout
             android:layout_marginTop="@dimen/dimen10"
@@ -65,12 +65,19 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="标         题："
+                    android:gravity="center|right"
+                    android:paddingRight="@dimen/dimen20"
+                    android:text="@string/sub_label_title"
                     android:textColor="@android:color/black"/>
                 <EditText
+                    android:text="@={sub.title}"
+                    android:hint="@string/sub_valid_title"
                     android:layout_weight="2"
                     android:layout_width="0dp"
+                    android:singleLine="true"
+                    android:paddingRight="@dimen/dimen10"
+                    android:paddingLeft="@dimen/dimen10"
+                    android:textSize="@dimen/dimen16"
                     android:layout_height="match_parent"
                     android:background="@drawable/login_edittext"
                     android:layout_marginRight="@dimen/dimen24"/>
@@ -85,10 +92,45 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="选择级别："
+                    android:gravity="center|right"
+                    android:paddingRight="@dimen/dimen20"
+                    android:text="@string/sub_label_theme"
+                    android:textColor="@android:color/black"/>
+                <EditText
+                    android:text="@={sub.theme}"
+                    android:hint="@string/sub_valid_theme"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:singleLine="true"
+                    android:paddingRight="@dimen/dimen10"
+                    android:paddingLeft="@dimen/dimen10"
+                    android:textSize="@dimen/dimen16"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/login_edittext"
+                    android:layout_marginRight="@dimen/dimen24"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen50"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen5"
+                android:layout_marginTop="@dimen/dimen5">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|right"
+                    android:paddingRight="@dimen/dimen20"
+                    android:text="@string/sub_label_level"
                     android:textColor="@android:color/black"/>
                 <TextView
+                    android:text="@{sub.level.dpname}"
+                    android:textSize="@dimen/dimen16"
+                    android:hint="@string/sub_valid_level"
+                    android:singleLine="true"
+                    android:gravity="center|left"
+                    android:paddingLeft="@dimen/dimen10"
+                    android:onClick="@{(view)->sub.showDropDown(view)}"
                     android:paddingRight="@dimen/dimen10"
                     android:drawableRight="@drawable/down"
                     android:layout_weight="2"
@@ -107,15 +149,17 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="稿         件："
+                    android:gravity="center|right"
+                    android:paddingRight="@dimen/dimen20"
+                    android:text="@string/sub_label_file"
                     android:textColor="@android:color/black"/>
                 <Button
+                    android:onClick="@{()->sub.showFileDialog()}"
                     android:layout_weight="2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/cancel_button"
-                    android:text="上传附件"
+                    android:text="@string/sub_label_upfile"
                     android:textColor="@color/grey"
                     android:layout_marginRight="@dimen/dimen24"/>
             </LinearLayout>
@@ -166,16 +210,47 @@
                         android:layout_weight="1"
                         android:layout_marginRight="@dimen/dimen10"
                         android:layout_marginLeft="@dimen/dimen10"
-                        android:text="稿件名称"/>
+                        android:text="@{sub.file.name}"/>
                 </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:visibility="@{sub.visible}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/dimen50"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen5"
+                android:layout_marginTop="@dimen/dimen5">
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center|right"
+                    android:paddingRight="@dimen/dimen20"
+                    android:text="@string/sub_label_return"
+                    android:textColor="@android:color/black"/>
+                <TextView
+                    android:text="@{sub.comment}"
+                    android:textSize="@dimen/dimen16"
+                    android:hint="@string/sub_valid_level"
+                    android:gravity="center|left"
+                    android:paddingLeft="@dimen/dimen10"
+                    android:onClick="@{(view)->sub.showDropDown(view)}"
+                    android:paddingRight="@dimen/dimen10"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/login_edittext"
+                    android:layout_marginRight="@dimen/dimen24"/>
             </LinearLayout>
         </LinearLayout>
         <Button
+            android:onClick="@{()->sub.commit()}"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen50"
             android:layout_margin="@dimen/dimen10"
             android:background="@drawable/login_button"
-            android:text="提交"
+            android:text="@string/commit"
             android:textColor="@android:color/white"/>
     </LinearLayout>
 </layout>

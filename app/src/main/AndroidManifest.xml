@@ -3,6 +3,8 @@
     package="com.managerlee.assessment">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".framework.config.AppApplication"
@@ -30,6 +32,7 @@
         <activity android:name=".view.TaskDetailActivity" android:theme="@style/AppTheme"/>
         <activity android:name=".view.TaskReleaseActivity" android:theme="@style/AppTheme"/>
         <activity android:name=".view.WebviewActivity" android:theme="@style/AppTheme"/>
+        <activity android:name=".view.FileListActivity" android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

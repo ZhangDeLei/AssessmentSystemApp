@@ -3,11 +3,11 @@
 
     <data>
 
-        <import type="com.managerlee.assessment.viewModel.ArticleSubmissionHisViewModel" />
+        <import type="com.managerlee.assessment.viewModel.FileListViewModel" />
 
         <variable
             name="viewModel"
-            type="ArticleSubmissionHisViewModel" />
+            type="FileListViewModel" />
     </data>
 
     <LinearLayout
@@ -35,21 +35,15 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:gravity="center"
-                android:text="@string/sub_his"
+                android:text="@string/sub_file_list"
                 android:textColor="@color/colorTitleText"
                 android:textSize="@dimen/dimen18"
                 android:textStyle="bold" />
         </RelativeLayout>
 
-        <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/swipeRegreshLayout"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
-        </android.support.v4.widget.SwipeRefreshLayout>
+            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
     </LinearLayout>
 </layout>

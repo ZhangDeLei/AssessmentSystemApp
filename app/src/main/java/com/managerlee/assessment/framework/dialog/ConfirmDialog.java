@@ -20,7 +20,7 @@ public class ConfirmDialog extends BaseDialog {
     private ImageButton dialogIbClose;
     private Button dialogBtnConfirm;
 
-    public ConfirmDialog(Activity context, String title, String content) {
+    public ConfirmDialog(Activity context) {
         super(context);
         this.context = context;
     }
@@ -58,11 +58,11 @@ public class ConfirmDialog extends BaseDialog {
     }
 
     public void setContent(String content) {
-        this.content = content;
+        this.dialogTvContent.setText(content);
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.dialogTvTitle.setText(title);
     }
 
     private OnClickListener listener;

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.managerlee.assessment.framework.control.bean.DropDownBean" />
+
+        <import type="com.managerlee.assessment.framework.control.adapter.DropDownAdapter.ClickEvent" />
+
+        <variable
+            name="ddb"
+            type="DropDownBean" />
+
+        <variable
+            name="click"
+            type="ClickEvent" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ll_dropdown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen50"
+            android:gravity="center|left"
+            android:onClick="@{()->click.itemClick(ddb)}"
+            android:paddingLeft="@dimen/dimen10"
+            android:paddingRight="@dimen/dimen10"
+            android:text="@{ddb.dpname}"
+            android:textSize="@dimen/dimen18" />
+    </LinearLayout>
+</layout>

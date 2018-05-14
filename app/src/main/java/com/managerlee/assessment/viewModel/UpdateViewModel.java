@@ -48,7 +48,9 @@ public class UpdateViewModel extends BaseViewModel {
                         activity.startActivity(new Intent(activity, LoginActivity.class));
                     }
                 } else {
-                    ConfirmDialog dialog = new ConfirmDialog(activity, "发现新版本", data.getComment());
+                    ConfirmDialog dialog = new ConfirmDialog(activity);
+                    dialog.setTitle("发现新版本");
+                    dialog.setContent(data.getComment());
                     dialog.setListener(new ConfirmDialog.OnClickListener() {
                         @Override
                         public void onClose() {
@@ -68,6 +70,8 @@ public class UpdateViewModel extends BaseViewModel {
             public void onError(String msg) {
                 ProgressHelper.init().close();
                 ToastUtils.show(msg);
+                activity.finish();
+                activity.startActivity(new Intent(activity, LoginActivity.class));
             }
 
             @Override

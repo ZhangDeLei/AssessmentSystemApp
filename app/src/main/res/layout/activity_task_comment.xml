@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="com.managerlee.assessment.viewModel.TaskCommentViewModel"/>
+        <variable
+            name="vm"
+            type="TaskCommentViewModel"/>
+    </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -11,6 +17,7 @@
             android:gravity="center|left">
 
             <ImageButton
+                android:onClick="@{()->vm.gotoBack()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
@@ -44,12 +51,18 @@
             android:background="@android:color/white">
             <EditText
                 android:background="@drawable/search_edittext"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:hint="@string/task_write"
                 android:paddingLeft="@dimen/dimen10"
                 android:paddingRight="@dimen/dimen10"
                 android:singleLine="true"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="发送"
+                android:background="@android:color/transparent"/>
         </LinearLayout>
     </LinearLayout>
 </layout>

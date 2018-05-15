@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.managerlee.assessment.R;
@@ -40,17 +41,37 @@ public class FragmentTask extends BaseFragment implements SwipeRefreshLayout.OnR
     @Override
     public void bindData() {
         mAdapter = new TaskAdapter(getContext());
+        viewModel = new TaskViewModel(getActivity(), mAdapter, this);
         mBinding.recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         mBinding.recyclerView.setItemAnimator(new DefaultItemAnimator());
         mBinding.recyclerView.setAdapter(mAdapter);
+        mBinding.recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+            int lastVisibleItem;
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (newState == RecyclerView.SCROLL_STATE_IDLE && lastVisibleItem + 1 == mAdapter.getItemCount()) {
+                    viewModel.CurPage++;
+                    viewModel.initData();
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                LinearLayoutManager layoutManager = (LinearLayoutManager) mBinding.recyclerView.getLayoutManager();
+                lastVisibleItem = layoutManager.findLastVisibleItemPosition();
+            }
+        });
         mBinding.swipeRegreshLayout.setOnRefreshListener(this);
-        viewModel = new TaskViewModel(getActivity(), mAdapter, this);
         mBinding.setViewModel(viewModel);
     }
 
     @Override
     public void onRefresh() {
         mAdapter.clearData();
+        viewModel.CurPage = 1;
         viewModel.initData();
     }
 

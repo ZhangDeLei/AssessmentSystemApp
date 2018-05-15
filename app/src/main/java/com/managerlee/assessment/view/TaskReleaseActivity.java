@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil;
 import com.managerlee.assessment.R;
 import com.managerlee.assessment.databinding.ActivityTaskReleaseBinding;
 import com.managerlee.assessment.framework.base.BaseActivity;
+import com.managerlee.assessment.viewModel.TaskReleaseViewModel;
 
 /**
  * 发布任务
@@ -14,7 +15,7 @@ import com.managerlee.assessment.framework.base.BaseActivity;
 public class TaskReleaseActivity extends BaseActivity {
 
     private ActivityTaskReleaseBinding mBinding;
-
+    private TaskReleaseViewModel viewModel;
     @Override
     public void bindLayout() {
         mBinding = DataBindingUtil.setContentView(mAct, R.layout.activity_task_release);
@@ -22,6 +23,7 @@ public class TaskReleaseActivity extends BaseActivity {
 
     @Override
     public void bindData() {
-
+        viewModel = new TaskReleaseViewModel(this);
+        mBinding.setViewModel(viewModel);
     }
 }

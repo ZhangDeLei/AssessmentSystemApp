@@ -50,4 +50,21 @@
     <!--dialog-->
     <string name="dialog_file_check">选择操作</string>
     <string name="dialog_file_item">文件管理</string>
+    <!--发布任务-->
+    <string name="task_release">发布任务</string>
+    <string name="task_cancel">取消</string>
+    <string name="task_create">立即创建</string>
+    <!--日期选择器-->
+    <string name="cancle">取消</string>
+    <string name="title">请选择时间</string>
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+    <string name="hour">时</string>
+    <string name="minute">分</string>
+
+    <string name="select_date">选择日期</string>
+    <string name="current_date">当前日期</string>
+    <string name="select_time">选择时间</string>
+    <string name="current_time">当前时间</string>
 </resources>

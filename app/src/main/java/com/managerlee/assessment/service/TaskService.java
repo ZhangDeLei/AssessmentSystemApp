@@ -28,7 +28,7 @@ public interface TaskService {
     Observable<ResponseData<TaskBean>> getTaskById(@Query("Id") int id);
 
     @POST(URLConstant.Task_Insert)
-    Observable<ResponseData<Object>> insert(@Body TaskInfo bean);
+    Observable<ResponseData<String>> insert(@Body TaskInfo bean);
 
     @POST(URLConstant.Task_Update)
     Observable<ResponseData<Object>> update(@Body TaskInfo bean);

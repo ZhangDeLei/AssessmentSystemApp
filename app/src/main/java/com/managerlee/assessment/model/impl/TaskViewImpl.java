@@ -1,6 +1,7 @@
 package com.managerlee.assessment.model.impl;
 
 import com.managerlee.assessment.bean.TaskBean;
+import com.managerlee.assessment.bean.TaskInfo;
 import com.managerlee.assessment.framework.http.RetrofitHelper;
 import com.managerlee.assessment.framework.http.data.PageData;
 import com.managerlee.assessment.framework.http.data.ResponseCode;
@@ -39,6 +40,33 @@ public class TaskViewImpl implements ITaskView {
                             listener.onSuccess(pageDataResponseData.getData().getList());
                         } else {
                             listener.onError(pageDataResponseData.getMsg());
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        listener.onError(e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        listener.onCompleted();
+                    }
+                });
+    }
+
+    @Override
+    public void createTask(TaskInfo bean, final CallBackListener<String> listener) {
+        taskService.insert(bean)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new DisposableObserver<ResponseData<String>>() {
+                    @Override
+                    public void onNext(ResponseData<String> response) {
+                        if (response.getCode() == ResponseCode.SUCCESS) {
+                            listener.onSuccess(response.getMsg());
+                        } else {
+                            listener.onError(response.getMsg());
                         }
                     }
 

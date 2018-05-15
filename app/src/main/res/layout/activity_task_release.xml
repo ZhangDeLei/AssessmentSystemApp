@@ -1,203 +1,341 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.managerlee.assessment.viewModel.TaskReleaseViewModel" />
+
+        <variable
+            name="viewModel"
+            type="TaskReleaseViewModel" />
+
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/gray">
+        android:background="@color/gray"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen50"
-            android:gravity="center|left"
-            android:background="@drawable/title_bg">
+            android:background="@drawable/title_bg"
+            android:gravity="center|left">
+
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/left"
-                android:background="@android:color/transparent"/>
+                android:background="@android:color/transparent"
+                android:onClick="@{()->viewModel.gotoBack()}"
+                android:src="@drawable/left" />
+
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="发布任务"
-                android:textStyle="bold"
+                android:text="@string/task_release"
+                android:textColor="@color/colorTitleText"
                 android:textSize="@dimen/dimen18"
-                android:textColor="@color/colorTitleText"/>
+                android:textStyle="bold" />
         </RelativeLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen60"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginTop="@dimen/dimen5"
-            android:background="@android:color/white"
-            android:paddingRight="@dimen/dimen10"
-            android:paddingLeft="@dimen/dimen10">
-            <TextView
-                android:textColor="@android:color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="*地        址："
-                android:textSize="@dimen/dimen16"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen40"
-                android:hint="请输入地址"
-                android:paddingLeft="@dimen/dimen5"
-                android:paddingRight="@dimen/dimen5"
-                android:background="@drawable/login_edittext"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen60"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:background="@android:color/white"
-            android:paddingRight="@dimen/dimen10"
-            android:paddingLeft="@dimen/dimen10">
-            <TextView
-                android:textColor="@android:color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="*任务网站："
-                android:textSize="@dimen/dimen16"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen40"
-                android:hint="请输入地址"
-                android:paddingLeft="@dimen/dimen5"
-                android:paddingRight="@dimen/dimen5"
-                android:background="@drawable/login_edittext"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen60"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:background="@android:color/white"
-            android:paddingRight="@dimen/dimen10"
-            android:paddingLeft="@dimen/dimen10">
-            <TextView
-                android:textColor="@android:color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="*标        题："
-                android:textSize="@dimen/dimen16"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen40"
-                android:hint="请输入地址"
-                android:paddingLeft="@dimen/dimen5"
-                android:paddingRight="@dimen/dimen5"
-                android:background="@drawable/login_edittext"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen60"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:background="@android:color/white"
-            android:paddingRight="@dimen/dimen10"
-            android:paddingLeft="@dimen/dimen10">
-            <TextView
-                android:textColor="@android:color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="*任务类别："
-                android:textSize="@dimen/dimen16"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen40"
-                android:hint="请输入地址"
-                android:paddingLeft="@dimen/dimen5"
-                android:paddingRight="@dimen/dimen5"
-                android:background="@drawable/login_edittext"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen60"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:background="@android:color/white"
-            android:paddingRight="@dimen/dimen10"
-            android:paddingLeft="@dimen/dimen10">
-            <TextView
-                android:textColor="@android:color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="*任务要求："
-                android:textSize="@dimen/dimen16"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen40"
-                android:hint="请输入地址"
-                android:paddingLeft="@dimen/dimen5"
-                android:paddingRight="@dimen/dimen5"
-                android:background="@drawable/login_edittext"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen60"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:background="@android:color/white"
-            android:paddingRight="@dimen/dimen10"
-            android:paddingLeft="@dimen/dimen10">
-            <TextView
-                android:textColor="@android:color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="*完成时段："
-                android:textSize="@dimen/dimen16"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen40"
-                android:hint="请输入地址"
-                android:paddingLeft="@dimen/dimen5"
-                android:paddingRight="@dimen/dimen5"
-                android:background="@drawable/login_edittext"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen60"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:background="@android:color/white"
-            android:paddingRight="@dimen/dimen10"
-            android:paddingLeft="@dimen/dimen10">
-            <TextView
-                android:textColor="@android:color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="*任务积分："
-                android:textSize="@dimen/dimen16"/>
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen40"
-                android:hint="请输入地址"
-                android:paddingLeft="@dimen/dimen5"
-                android:paddingRight="@dimen/dimen5"
-                android:background="@drawable/login_edittext"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_weight="1"
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen60"
+                    android:layout_marginTop="@dimen/dimen5"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimen10"
+                    android:paddingRight="@dimen/dimen10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*地        址："
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/dimen16" />
+
+                    <EditText
+                        android:singleLine="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen40"
+                        android:background="@drawable/login_edittext"
+                        android:hint="请输入地址"
+                        android:paddingLeft="@dimen/dimen5"
+                        android:paddingRight="@dimen/dimen5"
+                        android:text="@={viewModel.taskInfo.url}"
+                        android:textSize="@dimen/dimen18" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen60"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimen10"
+                    android:paddingRight="@dimen/dimen10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*任务网站："
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/dimen16" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen40"
+                        android:background="@drawable/login_edittext"
+                        android:drawableRight="@drawable/down"
+                        android:gravity="center|left"
+                        android:hint="请选择网站"
+                        android:onClick="@{viewModel::showSite}"
+                        android:paddingLeft="@dimen/dimen5"
+                        android:paddingRight="@dimen/dimen5"
+                        android:textSize="@dimen/dimen18" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen60"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimen10"
+                    android:paddingRight="@dimen/dimen10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*标        题："
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/dimen16" />
+
+                    <EditText
+                        android:singleLine="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen40"
+                        android:background="@drawable/login_edittext"
+                        android:hint="请输入标题"
+                        android:paddingLeft="@dimen/dimen5"
+                        android:paddingRight="@dimen/dimen5"
+                        android:text="@={viewModel.taskInfo.title}"
+                        android:textSize="@dimen/dimen18" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen60"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimen10"
+                    android:paddingRight="@dimen/dimen10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*任务类别："
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/dimen16" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen40"
+                        android:background="@drawable/login_edittext"
+                        android:drawableRight="@drawable/down"
+                        android:gravity="center|left"
+                        android:hint="请选择任务类别"
+                        android:onClick="@{viewModel::showTaskType}"
+                        android:paddingLeft="@dimen/dimen5"
+                        android:paddingRight="@dimen/dimen5"
+                        android:textSize="@dimen/dimen18" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen100"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimen10"
+                    android:paddingRight="@dimen/dimen10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*任务要求："
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/dimen16" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/login_edittext"
+                        android:hint="请输入任务要求"
+                        android:paddingLeft="@dimen/dimen5"
+                        android:paddingRight="@dimen/dimen5"
+                        android:text="@={viewModel.taskInfo.comment}"
+                        android:textSize="@dimen/dimen18" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen60"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimen10"
+                    android:paddingRight="@dimen/dimen10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*完成时段："
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/dimen16" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen40"
+                        android:background="@drawable/login_edittext"
+                        android:drawableRight="@drawable/down"
+                        android:gravity="center|left"
+                        android:hint="请选择时间"
+                        android:onClick="@{viewModel::showTime}"
+                        android:paddingLeft="@dimen/dimen5"
+                        android:paddingRight="@dimen/dimen5"
+                        android:textSize="@dimen/dimen18" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen60"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimen10"
+                    android:paddingRight="@dimen/dimen10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*执行范围："
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/dimen16" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen40"
+                        android:background="@drawable/login_edittext"
+                        android:drawableRight="@drawable/down"
+                        android:gravity="center|left"
+                        android:hint="请选择执行范围"
+                        android:onClick="@{viewModel::showTeamList}"
+                        android:paddingLeft="@dimen/dimen5"
+                        android:paddingRight="@dimen/dimen5"
+                        android:textSize="@dimen/dimen18" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen60"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimen10"
+                    android:paddingRight="@dimen/dimen10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*执行类型："
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/dimen16" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen40"
+                        android:background="@drawable/login_edittext"
+                        android:drawableRight="@drawable/down"
+                        android:gravity="center|left"
+                        android:hint="请选择执行类型"
+                        android:onClick="@{viewModel::showOperatorType}"
+                        android:paddingLeft="@dimen/dimen5"
+                        android:paddingRight="@dimen/dimen5"
+                        android:textSize="@dimen/dimen18" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen60"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimen10"
+                    android:paddingRight="@dimen/dimen10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*任务积分："
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/dimen16" />
+
+                    <EditText
+                        android:singleLine="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen40"
+                        android:background="@drawable/login_edittext"
+                        android:hint="请输入任务积分"
+                        android:inputType="number"
+                        android:paddingLeft="@dimen/dimen5"
+                        android:paddingRight="@dimen/dimen5"
+                        android:text="@={viewModel.taskInfo.integral+``}"
+                        android:textSize="@dimen/dimen18" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
             android:gravity="center|bottom"
             android:paddingBottom="@dimen/dimen10"
-            android:background="@android:color/white">
+            android:paddingTop="@dimen/dimen10">
+
             <Button
-                android:background="@drawable/cancel_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="取消"/>
+                android:background="@drawable/cancel_button"
+                android:onClick="@{()->viewModel.gotoBack()}"
+                android:text="@string/task_cancel" />
+
             <Button
-                android:layout_marginLeft="@dimen/dimen20"
                 android:layout_width="@dimen/dimen200"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen20"
                 android:background="@drawable/login_button"
-                android:text="立即创建"
-                android:textColor="@android:color/white"/>
+                android:onClick="@{viewModel::commit}"
+                android:text="@string/task_create"
+                android:textColor="@android:color/white" />
         </LinearLayout>
     </LinearLayout>
 </layout>

@@ -70,6 +70,8 @@ public class DropDown<T extends DropDownBean> implements DropDownAdapter.ItemCli
             pw.setWidth(parent.getWidth());
             pw.setHeight(500);
             pw.showAsDropDown(parent);
+        } else {
+            hide();
         }
     }
 

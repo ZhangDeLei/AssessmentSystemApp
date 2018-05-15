@@ -46,4 +46,7 @@ public class URLConstant {
 
     //文件管理
     public static final String File_Upload = "api/file/fileUpload";//文件上传
+
+    //队伍管理
+    public static final String Team_GetTeamListByCompanyId="api/team/getTeamListByCompanyId";//根据企业ID获取队伍列表
 }

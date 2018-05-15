@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import com.managerlee.assessment.R;
 import com.managerlee.assessment.adapter.TaskCommentAdapter;
 import com.managerlee.assessment.bean.TaskBean;
+import com.managerlee.assessment.bean.TaskDetail;
 import com.managerlee.assessment.databinding.ActivityTaskCommentBinding;
 import com.managerlee.assessment.framework.base.BaseActivity;
 import com.managerlee.assessment.framework.listener.CompletedListener;
@@ -31,7 +32,7 @@ public class TaskCommentActivity extends BaseActivity implements SwipeRefreshLay
 
     @Override
     public void bindData() {
-        TaskBean bean = (TaskBean) getIntent().getSerializableExtra("task");
+        TaskDetail bean = (TaskDetail) getIntent().getSerializableExtra("task");
         adapter = new TaskCommentAdapter();
         viewModel = new TaskCommentViewModel(this, bean, adapter, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -58,6 +59,7 @@ public class TaskCommentActivity extends BaseActivity implements SwipeRefreshLay
                 lastVisibleItem = layoutManager.findLastVisibleItemPosition();
             }
         });
+        mBinding.setTask(bean);
         mBinding.setVm(viewModel);
         mBinding.swipeRegreshLayout.setOnRefreshListener(this);
     }

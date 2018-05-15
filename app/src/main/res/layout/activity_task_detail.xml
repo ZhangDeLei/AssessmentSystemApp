@@ -3,13 +3,15 @@
 
     <data>
 
-        <import type="com.managerlee.assessment.bean.TaskBean" />
+        <import type="com.managerlee.assessment.bean.TaskDetail" />
+
+        <import type="android.view.View" />
 
         <import type="com.managerlee.assessment.viewModel.TaskDetailViewModel" />
 
         <variable
             name="task"
-            type="TaskBean" />
+            type="TaskDetail" />
 
         <variable
             name="viewModel"
@@ -30,15 +32,15 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
                 android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
                 android:onClick="@{()->viewModel.gotoBack()}"
                 android:src="@drawable/left" />
 
             <TextView
-                android:layout_centerInParent="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
                 android:text="@string/task_tip"
                 android:textColor="@color/colorTitleText"
                 android:textSize="@dimen/dimen18"
@@ -149,54 +151,66 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen70"
-            android:background="@android:color/white"
+            android:background="@color/gray"
             android:gravity="center"
             android:orientation="horizontal"
             android:padding="@dimen/dimen16">
 
             <EditText
                 android:id="@+id/et_write"
-                android:singleLine="true"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/search_edittext"
                 android:hint="@string/task_write"
                 android:paddingLeft="@dimen/dimen20"
-                android:paddingRight="@dimen/dimen20" />
+                android:paddingRight="@dimen/dimen20"
+                android:singleLine="true"
+                android:visibility="@{`0002`.equals(task.typeCode)?View.VISIBLE:View.GONE}" />
 
             <LinearLayout
-                android:visibility="@{viewModel.visible}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="@{viewModel.visible}">
+
                 <ImageView
-                    android:onClick="@{()->viewModel.gotoCommentList(task)}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="@{()->viewModel.gotoCommentList(task)}"
                     android:paddingLeft="@dimen/dimen20"
-                    android:src="@drawable/eva" />
+                    android:src="@drawable/eva"
+                    android:visibility="@{`0002`.equals(task.typeCode)?View.VISIBLE:View.GONE}" />
 
                 <TextView
-                    android:onClick="@{()->viewModel.gotoCommentList(task)}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="365"
-                    android:textColor="@android:color/black" />
+                    android:onClick="@{()->viewModel.gotoCommentList(task)}"
+                    android:text="@{String.valueOf(task.commentTotal)}"
+                    android:textColor="@android:color/black"
+                    android:visibility="@{`0002`.equals(task.typeCode)?View.VISIBLE:View.GONE}" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="@dimen/dimen20"
                     android:paddingRight="@dimen/dimen20"
-                    android:text="@string/task_share" />
+                    android:text="@string/task_share"
+                    android:visibility="@{`0001`.equals(task.typeCode)?View.VISIBLE:View.GONE}" />
             </LinearLayout>
-            <Button
-                android:visibility="@{viewModel.sendVisible}"
+
+            <LinearLayout
+                android:visibility="@{viewModel.sendVisible?View.VISIBLE:View.GONE}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="发送"
-                android:background="@android:color/transparent"/>
+                android:orientation="vertical">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text="发送"
+                    android:visibility="@{`0002`.equals(task.typeCode)?View.VISIBLE:View.GONE}" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </layout>

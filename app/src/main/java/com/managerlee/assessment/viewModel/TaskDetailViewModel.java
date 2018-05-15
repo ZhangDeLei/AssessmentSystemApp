@@ -18,12 +18,12 @@ import com.managerlee.assessment.view.TaskCommentActivity;
 public class TaskDetailViewModel extends BaseViewModel {
 
     public ObservableField<Integer> visible = new ObservableField<>();
-    public ObservableField<Integer> sendVisible = new ObservableField<>();
+    public ObservableField<Boolean> sendVisible = new ObservableField<>();
 
     public TaskDetailViewModel(Activity activity) {
         super(activity);
         visible.set(View.VISIBLE);
-        sendVisible.set(View.GONE);
+        sendVisible.set(false);
     }
 
     /**
@@ -39,6 +39,6 @@ public class TaskDetailViewModel extends BaseViewModel {
 
     public void setIsFocus(boolean focus) {
         visible.set(focus ? View.GONE : View.VISIBLE);
-        sendVisible.set(focus ? View.VISIBLE : View.GONE);
+        sendVisible.set(focus);
     }
 }

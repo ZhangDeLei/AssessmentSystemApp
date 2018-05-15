@@ -1,6 +1,7 @@
 package com.managerlee.assessment.model.impl;
 
 import com.managerlee.assessment.bean.TaskBean;
+import com.managerlee.assessment.bean.TaskDetail;
 import com.managerlee.assessment.bean.TaskInfo;
 import com.managerlee.assessment.framework.http.RetrofitHelper;
 import com.managerlee.assessment.framework.http.data.PageData;
@@ -29,13 +30,13 @@ public class TaskViewImpl implements ITaskView {
     }
 
     @Override
-    public void getTaskListByUserId(Map<String, Object> params, final CallBackListener<List<TaskBean>> listener) {
+    public void getTaskListByUserId(Map<String, Object> params, final CallBackListener<List<TaskDetail>> listener) {
         taskService.getUserTaskList(params)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new DisposableObserver<ResponseData<PageData<TaskBean>>>() {
+                .subscribe(new DisposableObserver<ResponseData<PageData<TaskDetail>>>() {
                     @Override
-                    public void onNext(ResponseData<PageData<TaskBean>> pageDataResponseData) {
+                    public void onNext(ResponseData<PageData<TaskDetail>> pageDataResponseData) {
                         if (pageDataResponseData.getCode() == ResponseCode.SUCCESS) {
                             listener.onSuccess(pageDataResponseData.getData().getList());
                         } else {

@@ -1,6 +1,7 @@
 package com.managerlee.assessment.model;
 
 import com.managerlee.assessment.bean.TaskBean;
+import com.managerlee.assessment.bean.TaskDetail;
 import com.managerlee.assessment.bean.TaskInfo;
 import com.managerlee.assessment.framework.http.event.CallBackListener;
 
@@ -13,7 +14,7 @@ import java.util.Map;
 
 public interface ITaskView {
 
-    void getTaskListByUserId(Map<String, Object> params, CallBackListener<List<TaskBean>> listener);
+    void getTaskListByUserId(Map<String, Object> params, CallBackListener<List<TaskDetail>> listener);
 
     void createTask(TaskInfo bean, CallBackListener<String> listener);
 }

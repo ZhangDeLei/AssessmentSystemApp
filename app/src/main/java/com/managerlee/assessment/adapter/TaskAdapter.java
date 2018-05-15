@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.managerlee.assessment.R;
 import com.managerlee.assessment.bean.TaskBean;
+import com.managerlee.assessment.bean.TaskDetail;
 import com.managerlee.assessment.databinding.ItemTaskBinding;
 import com.managerlee.assessment.framework.base.BaseAdapter;
 import com.managerlee.assessment.view.TaskDetailActivity;
@@ -17,7 +18,7 @@ import com.managerlee.assessment.view.TaskDetailActivity;
  * Created by anins on 2018/3/27.
  */
 
-public class TaskAdapter extends BaseAdapter<TaskAdapter.Holder, TaskBean> {
+public class TaskAdapter extends BaseAdapter<TaskAdapter.Holder, TaskDetail> {
     private Context context;
     private ClickEvent clickEvent;
 

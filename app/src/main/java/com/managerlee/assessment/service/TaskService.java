@@ -1,5 +1,6 @@
 package com.managerlee.assessment.service;
 
+import com.managerlee.assessment.bean.TaskDetail;
 import com.managerlee.assessment.bean.TaskInfo;
 import com.managerlee.assessment.constant.URLConstant;
 import com.managerlee.assessment.framework.http.data.PageData;
@@ -22,7 +23,7 @@ import retrofit2.http.QueryMap;
 public interface TaskService {
 
     @GET(URLConstant.Task_GetTaskListByUserId)
-    Observable<ResponseData<PageData<TaskBean>>> getUserTaskList(@QueryMap Map<String, Object> params);
+    Observable<ResponseData<PageData<TaskDetail>>> getUserTaskList(@QueryMap Map<String, Object> params);
 
     @GET(URLConstant.Task_GetTaskById)
     Observable<ResponseData<TaskBean>> getTaskById(@Query("Id") int id);

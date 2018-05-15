@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
-        <import type="com.managerlee.assessment.viewModel.TaskCommentViewModel"/>
+
+        <import type="com.managerlee.assessment.viewModel.TaskCommentViewModel" />
+
+        <import type="com.managerlee.assessment.bean.TaskDetail" />
+
+        <import type="android.view.View" />
+
         <variable
             name="vm"
-            type="TaskCommentViewModel"/>
+            type="TaskCommentViewModel" />
+
+        <variable
+            name="task"
+            type="TaskDetail" />
     </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen50"
@@ -17,10 +30,10 @@
             android:gravity="center|left">
 
             <ImageButton
-                android:onClick="@{()->vm.gotoBack()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
+                android:onClick="@{()->vm.gotoBack()}"
                 android:src="@drawable/left" />
 
             <TextView
@@ -32,37 +45,43 @@
                 android:textSize="@dimen/dimen18"
                 android:textStyle="bold" />
         </RelativeLayout>
+
         <android.support.v4.widget.SwipeRefreshLayout
-            android:layout_weight="1"
+            android:id="@+id/swipeRegreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/swipeRegreshLayout"
+            android:layout_weight="1"
             android:background="@color/gray">
+
             <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/recyclerView"></android.support.v7.widget.RecyclerView>
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
         </android.support.v4.widget.SwipeRefreshLayout>
+
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen60"
+            android:background="@android:color/white"
+            android:orientation="horizontal"
             android:padding="@dimen/dimen10"
-            android:background="@android:color/white">
+            android:visibility="@{`0002`.equals(task.typeCode)?View.VISIBLE:View.GONE}">
+
             <EditText
-                android:background="@drawable/search_edittext"
                 android:layout_width="wrap_content"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/search_edittext"
                 android:hint="@string/task_write"
                 android:paddingLeft="@dimen/dimen10"
                 android:paddingRight="@dimen/dimen10"
-                android:singleLine="true"/>
+                android:singleLine="true" />
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="发送"
-                android:background="@android:color/transparent"/>
+                android:background="@android:color/transparent"
+                android:text="发送" />
         </LinearLayout>
     </LinearLayout>
 </layout>

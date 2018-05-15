@@ -3,13 +3,13 @@
 
     <data>
 
-        <import type="com.managerlee.assessment.bean.TaskBean" />
+        <import type="com.managerlee.assessment.bean.TaskDetail" />
 
         <import type="com.managerlee.assessment.adapter.TaskAdapter.ClickEvent" />
 
         <variable
             name="task"
-            type="TaskBean" />
+            type="TaskDetail" />
 
         <variable
             name="click"
@@ -31,7 +31,7 @@
             android:layout_height="@dimen/dimen80"
             android:background="@color/red"
             android:gravity="center"
-            android:text="10"
+            android:text="@{String.valueOf(task.total)}"
             android:textColor="@android:color/white" />
 
         <LinearLayout

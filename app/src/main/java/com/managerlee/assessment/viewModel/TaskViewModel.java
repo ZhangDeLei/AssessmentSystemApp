@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.managerlee.assessment.adapter.TaskAdapter;
 import com.managerlee.assessment.bean.TaskBean;
+import com.managerlee.assessment.bean.TaskDetail;
 import com.managerlee.assessment.constant.PageConstant;
 import com.managerlee.assessment.framework.base.BaseViewModel;
 import com.managerlee.assessment.framework.http.event.CallBackListener;
@@ -27,7 +28,7 @@ import java.util.Map;
  * Created by anins on 2018/3/23.
  */
 
-public class TaskViewModel extends BaseViewModel{
+public class TaskViewModel extends BaseViewModel {
     private ITaskView taskView;
     private TaskAdapter mAdapter;
     private CompletedListener completedListener;
@@ -51,10 +52,13 @@ public class TaskViewModel extends BaseViewModel{
         params.put("PageSize", PageConstant.PageSize);
         params.put("CurPage", CurPage);
         params.put("Title", title.get());
-        taskView.getTaskListByUserId(params, new CallBackListener<List<TaskBean>>() {
+        taskView.getTaskListByUserId(params, new CallBackListener<List<TaskDetail>>() {
             @Override
-            public void onSuccess(List<TaskBean> data) {
+            public void onSuccess(List<TaskDetail> data) {
                 mAdapter.setData(data);
+                if (data == null || data.size() == 0) {
+                    ToastUtils.show("当前没有任务");
+                }
             }
 
             @Override

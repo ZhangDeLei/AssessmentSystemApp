@@ -7,6 +7,7 @@ import android.webkit.WebViewClient;
 
 import com.managerlee.assessment.R;
 import com.managerlee.assessment.bean.TaskBean;
+import com.managerlee.assessment.bean.TaskDetail;
 import com.managerlee.assessment.databinding.ActivityTaskDetailBinding;
 import com.managerlee.assessment.framework.base.BaseActivity;
 import com.managerlee.assessment.viewModel.TaskDetailViewModel;
@@ -27,7 +28,7 @@ public class TaskDetailActivity extends BaseActivity implements View.OnFocusChan
 
     @Override
     public void bindData() {
-        TaskBean bean = (TaskBean) getIntent().getSerializableExtra("task");
+        TaskDetail bean = (TaskDetail) getIntent().getSerializableExtra("task");
         viewModel = new TaskDetailViewModel(this);
         mBinding.webView.loadUrl(bean.getUrl());
         mBinding.webView.getSettings().setJavaScriptEnabled(true);

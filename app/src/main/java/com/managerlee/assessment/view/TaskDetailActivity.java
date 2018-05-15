@@ -1,6 +1,7 @@
 package com.managerlee.assessment.view;
 
 import android.databinding.DataBindingUtil;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -15,7 +16,7 @@ import com.managerlee.assessment.viewModel.TaskDetailViewModel;
  * Created by anins on 2018/3/23.
  */
 
-public class TaskDetailActivity extends BaseActivity {
+public class TaskDetailActivity extends BaseActivity implements View.OnFocusChangeListener {
     private ActivityTaskDetailBinding mBinding;
     private TaskDetailViewModel viewModel;
 
@@ -30,7 +31,7 @@ public class TaskDetailActivity extends BaseActivity {
         viewModel = new TaskDetailViewModel(this);
         mBinding.webView.loadUrl(bean.getUrl());
         mBinding.webView.getSettings().setJavaScriptEnabled(true);
-        mBinding.webView.setWebViewClient(new WebViewClient(){
+        mBinding.webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
@@ -39,5 +40,11 @@ public class TaskDetailActivity extends BaseActivity {
         });
         mBinding.setTask(bean);
         mBinding.setViewModel(viewModel);
+        mBinding.etWrite.setOnFocusChangeListener(this);
+    }
+
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        viewModel.setIsFocus(hasFocus);
     }
 }

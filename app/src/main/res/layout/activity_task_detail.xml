@@ -155,6 +155,7 @@
             android:padding="@dimen/dimen16">
 
             <EditText
+                android:id="@+id/et_write"
                 android:singleLine="true"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -164,26 +165,38 @@
                 android:paddingLeft="@dimen/dimen20"
                 android:paddingRight="@dimen/dimen20" />
 
-            <ImageView
-                android:onClick="@{()->viewModel.gotoCommentList(task)}"
+            <LinearLayout
+                android:visibility="@{viewModel.visible}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/dimen20"
-                android:src="@drawable/eva" />
+                android:orientation="horizontal">
+                <ImageView
+                    android:onClick="@{()->viewModel.gotoCommentList(task)}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/dimen20"
+                    android:src="@drawable/eva" />
 
-            <TextView
-                android:onClick="@{()->viewModel.gotoCommentList(task)}"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="365"
-                android:textColor="@android:color/black" />
+                <TextView
+                    android:onClick="@{()->viewModel.gotoCommentList(task)}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="365"
+                    android:textColor="@android:color/black" />
 
-            <TextView
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/dimen20"
+                    android:paddingRight="@dimen/dimen20"
+                    android:text="@string/task_share" />
+            </LinearLayout>
+            <Button
+                android:visibility="@{viewModel.sendVisible}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/dimen20"
-                android:paddingRight="@dimen/dimen20"
-                android:text="@string/task_share" />
+                android:text="发送"
+                android:background="@android:color/transparent"/>
         </LinearLayout>
     </LinearLayout>
 </layout>

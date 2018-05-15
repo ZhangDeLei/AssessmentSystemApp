@@ -2,6 +2,7 @@ package com.managerlee.assessment.viewModel;
 
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.ObservableField;
 import android.view.View;
 
 import com.managerlee.assessment.adapter.TaskAdapter;
@@ -30,12 +31,14 @@ public class TaskViewModel {
     private ITaskView taskView;
     private TaskAdapter mAdapter;
     private CompletedListener completedListener;
+    public ObservableField<String> title = new ObservableField<>();//标题内容
 
     public TaskViewModel(Context context, TaskAdapter mAdapter, CompletedListener completedListener) {
         this.context = context;
         this.taskView = new TaskViewImpl();
         this.mAdapter = mAdapter;
         this.completedListener = completedListener;
+        this.title.set("");
         initData();
     }
 
@@ -47,6 +50,7 @@ public class TaskViewModel {
         params.put("UserId", PerferenceConfig.UserId.get());
         params.put("PageSize", PageConstant.PageSize);
         params.put("CurPage", PageConstant.CurPage);
+        params.put("Title", title.get());
         taskView.getTaskListByUserId(params, new CallBackListener<List<TaskBean>>() {
             @Override
             public void onSuccess(List<TaskBean> data) {
@@ -90,5 +94,13 @@ public class TaskViewModel {
      */
     public void gotoSetting(View view) {
         context.startActivity(new Intent(context, SettingActivity.class));
+    }
+
+    /**
+     * 文本切换
+     */
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        title.set(s.toString());
+        initData();
     }
 }

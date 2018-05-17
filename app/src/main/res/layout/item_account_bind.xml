@@ -5,12 +5,19 @@
 
         <import type="com.managerlee.assessment.bean.UserNewAuthBean" />
 
+        <import type="com.managerlee.assessment.adapter.AccountBindAdapter.ClickEvent" />
+
         <variable
             name="newBean"
             type="UserNewAuthBean" />
+
+        <variable
+            name="click"
+            type="ClickEvent" />
     </data>
 
     <LinearLayout
+        android:onClick="@{()->click.onItem()}"
         android:id="@+id/ll_account_binding"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen60"

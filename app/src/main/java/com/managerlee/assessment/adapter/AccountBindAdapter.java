@@ -17,9 +17,11 @@ import com.managerlee.assessment.framework.base.BaseAdapter;
 
 public class AccountBindAdapter extends BaseAdapter<AccountBindAdapter.Holder, UserNewAuthBean> {
     private Context context;
+    private ClickEvent clickEvent;
 
     public AccountBindAdapter(Context context) {
         this.context = context;
+        this.clickEvent = new ClickEvent();
     }
 
     @Override
@@ -41,5 +43,23 @@ public class AccountBindAdapter extends BaseAdapter<AccountBindAdapter.Holder, U
             super(binding.llAccountBinding);
             this.binding = binding;
         }
+    }
+
+    public class ClickEvent {
+        public void onItem(UserNewAuthBean bean) {
+            if (listener != null) {
+                listener.onItem(bean);
+            }
+        }
+    }
+
+    private OnItemListener listener;
+
+    public interface OnItemListener {
+        void onItem(UserNewAuthBean bean);
+    }
+
+    public void setListener(OnItemListener listener) {
+        this.listener = listener;
     }
 }

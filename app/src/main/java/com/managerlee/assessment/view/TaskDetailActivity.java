@@ -1,6 +1,7 @@
 package com.managerlee.assessment.view;
 
 import android.databinding.DataBindingUtil;
+import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -17,7 +18,7 @@ import com.managerlee.assessment.viewModel.TaskDetailViewModel;
  * Created by anins on 2018/3/23.
  */
 
-public class TaskDetailActivity extends BaseActivity implements View.OnFocusChangeListener {
+public class TaskDetailActivity extends BaseActivity{
     private ActivityTaskDetailBinding mBinding;
     private TaskDetailViewModel viewModel;
 
@@ -29,7 +30,8 @@ public class TaskDetailActivity extends BaseActivity implements View.OnFocusChan
     @Override
     public void bindData() {
         TaskDetail bean = (TaskDetail) getIntent().getSerializableExtra("task");
-        viewModel = new TaskDetailViewModel(this);
+        viewModel = new TaskDetailViewModel(this, bean);
+        viewModel.setWebView(mBinding.webView);
         mBinding.webView.loadUrl(bean.getUrl());
         mBinding.webView.getSettings().setJavaScriptEnabled(true);
         mBinding.webView.setWebViewClient(new WebViewClient() {
@@ -41,11 +43,16 @@ public class TaskDetailActivity extends BaseActivity implements View.OnFocusChan
         });
         mBinding.setTask(bean);
         mBinding.setViewModel(viewModel);
-        mBinding.etWrite.setOnFocusChangeListener(this);
     }
 
     @Override
-    public void onFocusChange(View v, boolean hasFocus) {
-        viewModel.setIsFocus(hasFocus);
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && mBinding.webView.canGoBack()) {
+            mBinding.webView.goBack();
+            return true;
+        } else {
+            this.finish();
+        }
+        return false;
     }
 }

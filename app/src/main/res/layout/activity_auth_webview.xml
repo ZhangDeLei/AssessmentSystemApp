@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="com.managerlee.assessment.viewModel.AuthWebviewViewModel"/>
+        <variable
+            name="vm"
+            type="AuthWebviewViewModel"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen50"
+            android:background="@drawable/title_bg"
+            android:gravity="center|left">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                android:onClick="@{()->vm.gotoBack()}"
+                android:src="@drawable/left" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@{vm.title}"
+                android:textColor="@color/colorTitleText"
+                android:textSize="@dimen/dimen18"
+                android:textStyle="bold" />
+        </RelativeLayout>
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"></WebView>
+    </LinearLayout>
+</layout>

@@ -1,6 +1,5 @@
 package com.managerlee.assessment.model.impl;
 
-import com.managerlee.assessment.bean.TaskBean;
 import com.managerlee.assessment.bean.TaskDetail;
 import com.managerlee.assessment.bean.TaskInfo;
 import com.managerlee.assessment.framework.http.RetrofitHelper;
@@ -11,7 +10,6 @@ import com.managerlee.assessment.framework.http.event.CallBackListener;
 import com.managerlee.assessment.model.ITaskView;
 import com.managerlee.assessment.service.TaskService;
 
-import java.util.List;
 import java.util.Map;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -30,7 +28,7 @@ public class TaskViewImpl implements ITaskView {
     }
 
     @Override
-    public void getTaskListByUserId(Map<String, Object> params, final CallBackListener<List<TaskDetail>> listener) {
+    public void getTaskListByUserId(Map<String, Object> params, final CallBackListener<PageData<TaskDetail>> listener) {
         taskService.getUserTaskList(params)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -38,7 +36,7 @@ public class TaskViewImpl implements ITaskView {
                     @Override
                     public void onNext(ResponseData<PageData<TaskDetail>> pageDataResponseData) {
                         if (pageDataResponseData.getCode() == ResponseCode.SUCCESS) {
-                            listener.onSuccess(pageDataResponseData.getData().getList());
+                            listener.onSuccess(pageDataResponseData.getData());
                         } else {
                             listener.onError(pageDataResponseData.getMsg());
                         }

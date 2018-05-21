@@ -10,6 +10,7 @@ import com.managerlee.assessment.bean.TaskBean;
 import com.managerlee.assessment.bean.TaskDetail;
 import com.managerlee.assessment.constant.PageConstant;
 import com.managerlee.assessment.framework.base.BaseViewModel;
+import com.managerlee.assessment.framework.http.data.PageData;
 import com.managerlee.assessment.framework.http.event.CallBackListener;
 import com.managerlee.assessment.framework.listener.CompletedListener;
 import com.managerlee.assessment.framework.preference.PerferenceConfig;
@@ -33,6 +34,7 @@ public class TaskViewModel extends BaseViewModel {
     private TaskAdapter mAdapter;
     private CompletedListener completedListener;
     public ObservableField<String> title = new ObservableField<>();//标题内容
+    private PageData<TaskDetail> pageData;
 
     public TaskViewModel(Activity context, TaskAdapter mAdapter, CompletedListener completedListener) {
         super(context);
@@ -47,16 +49,20 @@ public class TaskViewModel extends BaseViewModel {
      * 初始化数据
      */
     public void initData() {
+        if (pageData != null && pageData.getPageNum() < this.CurPage) {
+            return;
+        }
         Map<String, Object> params = new HashMap<>();
         params.put("UserId", PerferenceConfig.UserId.get());
         params.put("PageSize", PageConstant.PageSize);
         params.put("CurPage", CurPage);
         params.put("Title", title.get());
-        taskView.getTaskListByUserId(params, new CallBackListener<List<TaskDetail>>() {
+        taskView.getTaskListByUserId(params, new CallBackListener<PageData<TaskDetail>>() {
             @Override
-            public void onSuccess(List<TaskDetail> data) {
-                mAdapter.setData(data);
-                if (data == null || data.size() == 0) {
+            public void onSuccess(PageData<TaskDetail> data) {
+                pageData = data;
+                mAdapter.setData(data.getList());
+                if (data.getList() == null || data.getList().size() == 0) {
                     ToastUtils.show("当前没有任务");
                 }
             }

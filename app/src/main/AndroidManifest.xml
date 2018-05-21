@@ -33,6 +33,7 @@
         <activity android:name=".view.TaskReleaseActivity" android:theme="@style/AppTheme"/>
         <activity android:name=".view.WebviewActivity" android:theme="@style/AppTheme"/>
         <activity android:name=".view.FileListActivity" android:theme="@style/AppTheme"/>
+        <activity android:name=".view.AuthWebviewActivity" android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

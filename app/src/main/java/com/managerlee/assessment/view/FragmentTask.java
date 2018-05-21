@@ -81,4 +81,10 @@ public class FragmentTask extends BaseFragment implements SwipeRefreshLayout.OnR
             mBinding.swipeRegreshLayout.setRefreshing(false);
         }
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        viewModel.initData();
+    }
 }

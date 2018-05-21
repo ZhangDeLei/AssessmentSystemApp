@@ -9,5 +9,5 @@ import java.io.File;
  */
 
 public interface IFileView {
-    void upload(File file, CallBackListener<String> listener);
+    void upload(File file,String type, CallBackListener<String> listener);
 }

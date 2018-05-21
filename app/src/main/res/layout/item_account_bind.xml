@@ -17,7 +17,7 @@
     </data>
 
     <LinearLayout
-        android:onClick="@{()->click.onItem()}"
+        android:onClick="@{()->click.onItem(newBean)}"
         android:id="@+id/ll_account_binding"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen60"

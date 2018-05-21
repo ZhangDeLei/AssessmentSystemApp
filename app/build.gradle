@@ -17,7 +17,7 @@ android {
         }
     }
     dataBinding {
-        enabled true
+        enabled = true
     }
 
     signingConfigs {
@@ -36,6 +36,11 @@ android {
             variant.outputs.all {
                 outputFileName = "AssessmentSystemApp_v${variant.versionCode}_" + getDate() + ".apk"
             }
+        }
+    }
+    allprojects {
+        repositories {
+            jcenter()
         }
     }
 }

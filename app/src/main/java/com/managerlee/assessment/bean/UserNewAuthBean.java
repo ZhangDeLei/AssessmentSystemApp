@@ -1,10 +1,12 @@
 package com.managerlee.assessment.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by anins on 2018/5/2.
  */
 
-public class UserNewAuthBean {
+public class UserNewAuthBean implements Serializable{
 
     /**
      * id : null
@@ -27,6 +29,8 @@ public class UserNewAuthBean {
     private Object authToken;
     private Object authTokenExpire;
     private Object refreshToken;
+
+    private NewBean newAuthEntity;
 
     public Object getId() {
         return id;
@@ -98,5 +102,13 @@ public class UserNewAuthBean {
 
     public void setRefreshToken(Object refreshToken) {
         this.refreshToken = refreshToken;
+    }
+
+    public NewBean getNewAuthEntity() {
+        return newAuthEntity;
+    }
+
+    public void setNewAuthEntity(NewBean newAuthEntity) {
+        this.newAuthEntity = newAuthEntity;
     }
 }

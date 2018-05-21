@@ -33,6 +33,7 @@ public class AccountBindAdapter extends BaseAdapter<AccountBindAdapter.Holder, U
     @Override
     public void onBindViewHolder(Holder holder, int position) {
         UserNewAuthBean bean = this.data.get(position);
+        holder.binding.setClick(clickEvent);
         holder.binding.setNewBean(bean);
     }
 

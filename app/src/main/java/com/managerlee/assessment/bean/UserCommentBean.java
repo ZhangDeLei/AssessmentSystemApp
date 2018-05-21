@@ -23,6 +23,9 @@ public class UserCommentBean {
     private String content;
     private String createTime;
     private Object imageUrl;
+    private int execTypeId;
+    private String execTypeCode;
+    private String execTypeName;
 
     public int getId() {
         return id;
@@ -78,5 +81,29 @@ public class UserCommentBean {
 
     public void setImageUrl(Object imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public int getExecTypeId() {
+        return execTypeId;
+    }
+
+    public void setExecTypeId(int execTypeId) {
+        this.execTypeId = execTypeId;
+    }
+
+    public String getExecTypeCode() {
+        return execTypeCode;
+    }
+
+    public void setExecTypeCode(String execTypeCode) {
+        this.execTypeCode = execTypeCode;
+    }
+
+    public String getExecTypeName() {
+        return execTypeName;
+    }
+
+    public void setExecTypeName(String execTypeName) {
+        this.execTypeName = execTypeName;
     }
 }

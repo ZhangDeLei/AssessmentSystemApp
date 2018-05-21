@@ -53,7 +53,8 @@
             android:layout_marginTop="@dimen/dimen5"
             android:background="@android:color/white"
             android:orientation="vertical"
-            android:padding="@dimen/dimen10">
+            android:padding="@dimen/dimen10"
+            android:visibility="@{viewModel.isAll?View.GONE:View.VISIBLE}">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -72,7 +73,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dimen10"
-                    android:text="@{task.execTypeName}" />
+                    android:text="@{task.userComplated?task.execTypeName:`已完成`}" />
             </LinearLayout>
 
             <LinearLayout
@@ -135,7 +136,8 @@
             android:gravity="center"
             android:text="@string/task_content"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/dimen18" />
+            android:textSize="@dimen/dimen18"
+            android:visibility="@{viewModel.isAll?View.GONE:View.VISIBLE}" />
 
         <View
             android:layout_width="match_parent"
@@ -152,65 +154,27 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen70"
             android:background="@color/gray"
-            android:gravity="center"
+            android:gravity="center|right"
             android:orientation="horizontal"
-            android:padding="@dimen/dimen16">
+            android:padding="@dimen/dimen16"
+            android:visibility="@{task.userComplated?View.VISIBLE:View.GONE}">
 
-            <EditText
-                android:id="@+id/et_write"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/search_edittext"
-                android:hint="@string/task_write"
-                android:paddingLeft="@dimen/dimen20"
-                android:paddingRight="@dimen/dimen20"
-                android:singleLine="true"
-                android:visibility="@{`0002`.equals(task.typeCode)?View.VISIBLE:View.GONE}" />
-
-            <LinearLayout
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:visibility="@{viewModel.visible}">
+                android:layout_marginRight="@dimen/dimen10"
+                android:background="@drawable/btn_radius_blue"
+                android:onClick="@{viewModel::startComplated}"
+                android:text="完成"
+                android:textColor="@android:color/white" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{()->viewModel.gotoCommentList(task)}"
-                    android:paddingLeft="@dimen/dimen20"
-                    android:src="@drawable/eva"
-                    android:visibility="@{`0002`.equals(task.typeCode)?View.VISIBLE:View.GONE}" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{()->viewModel.gotoCommentList(task)}"
-                    android:text="@{String.valueOf(task.commentTotal)}"
-                    android:textColor="@android:color/black"
-                    android:visibility="@{`0002`.equals(task.typeCode)?View.VISIBLE:View.GONE}" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/dimen20"
-                    android:paddingRight="@dimen/dimen20"
-                    android:text="@string/task_share"
-                    android:visibility="@{`0001`.equals(task.typeCode)?View.VISIBLE:View.GONE}" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:visibility="@{viewModel.sendVisible?View.VISIBLE:View.GONE}"
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:text="发送"
-                    android:visibility="@{`0002`.equals(task.typeCode)?View.VISIBLE:View.GONE}" />
-            </LinearLayout>
+                android:background="@drawable/btn_radius_red"
+                android:onClick="@{viewModel::allWindow}"
+                android:text="@{viewModel.isAll?`收起`:`全屏`}"
+                android:textColor="@android:color/white" />
         </LinearLayout>
     </LinearLayout>
 </layout>

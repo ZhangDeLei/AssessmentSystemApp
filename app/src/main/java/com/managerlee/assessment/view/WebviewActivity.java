@@ -1,6 +1,7 @@
 package com.managerlee.assessment.view;
 
 import android.databinding.DataBindingUtil;
+import android.view.KeyEvent;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -24,12 +25,23 @@ public class WebviewActivity extends BaseActivity {
     public void bindData() {
         mBinding.webView.loadUrl(getIntent().getStringExtra("web_url"));
         mBinding.webView.getSettings().setJavaScriptEnabled(true);
-        mBinding.webView.setWebViewClient(new WebViewClient(){
+        mBinding.webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
                 return true;
             }
         });
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && mBinding.webView.canGoBack()) {
+            mBinding.webView.goBack();
+            return true;
+        } else {
+            this.finish();
+        }
+        return false;
     }
 }

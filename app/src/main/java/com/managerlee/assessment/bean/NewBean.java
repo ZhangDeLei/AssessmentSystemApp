@@ -1,10 +1,12 @@
 package com.managerlee.assessment.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by anins on 2018/3/28.
  */
 
-public class NewBean {
+public class NewBean implements Serializable{
 
     /**
      * id : 5
@@ -30,14 +32,15 @@ public class NewBean {
     private String url;
     private String name;
     private boolean status;
-    private Object appId;
-    private Object appKey;
-    private Object appSecret;
-    private Object authCode;
-    private Object cls;
-    private Object authUrl;
-    private Object redirectUrl;
-    private Object icon;
+    private String appId;
+    private String appKey;
+    private String appSecret;
+    private String authCode;
+    private String cls;
+    private String clientCls;
+    private String authUrl;
+    private String redirectUrl;
+    private String icon;
     private Object oprs;
     private int newId;
     private String newName;
@@ -80,47 +83,55 @@ public class NewBean {
         return appId;
     }
 
-    public void setAppId(Object appId) {
+    public void setAppId(String appId) {
         this.appId = appId;
     }
 
-    public Object getAppKey() {
+    public String getAppKey() {
         return appKey;
     }
 
-    public void setAppKey(Object appKey) {
+    public void setAppKey(String appKey) {
         this.appKey = appKey;
     }
 
-    public Object getAppSecret() {
+    public String getAppSecret() {
         return appSecret;
     }
 
-    public void setAppSecret(Object appSecret) {
+    public void setAppSecret(String appSecret) {
         this.appSecret = appSecret;
     }
 
-    public Object getAuthCode() {
+    public String getAuthCode() {
         return authCode;
     }
 
-    public void setAuthCode(Object authCode) {
+    public void setAuthCode(String authCode) {
         this.authCode = authCode;
     }
 
-    public Object getCls() {
+    public String getClientCls() {
+        return clientCls;
+    }
+
+    public void setClientCls(String clientCls) {
+        this.clientCls = clientCls;
+    }
+
+    public String getCls() {
         return cls;
     }
 
-    public void setCls(Object cls) {
+    public void setCls(String cls) {
         this.cls = cls;
     }
 
-    public Object getAuthUrl() {
+    public String getAuthUrl() {
         return authUrl;
     }
 
-    public void setAuthUrl(Object authUrl) {
+    public void setAuthUrl(String authUrl) {
         this.authUrl = authUrl;
     }
 
@@ -128,15 +139,15 @@ public class NewBean {
         return redirectUrl;
     }
 
-    public void setRedirectUrl(Object redirectUrl) {
+    public void setRedirectUrl(String redirectUrl) {
         this.redirectUrl = redirectUrl;
     }
 
-    public Object getIcon() {
+    public String getIcon() {
         return icon;
     }
 
-    public void setIcon(Object icon) {
+    public void setIcon(String icon) {
         this.icon = icon;
     }
 

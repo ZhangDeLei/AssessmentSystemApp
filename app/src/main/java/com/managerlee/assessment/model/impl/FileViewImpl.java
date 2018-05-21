@@ -29,9 +29,9 @@ public class FileViewImpl implements IFileView {
     }
 
     @Override
-    public void upload(File file, final CallBackListener<String> listener) {
+    public void upload(File file,String type, final CallBackListener<String> listener) {
         RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
-        RequestBody requestType = RequestBody.create(MediaType.parse("multipart/form-data"), FileType.ARTICLE.getType());
+        RequestBody requestType = RequestBody.create(MediaType.parse("multipart/form-data"), type);
         MultipartBody.Part body = MultipartBody.Part.createFormData("file", file.getName(), requestFile);
         service.upload(body, requestType)
                 .subscribeOn(Schedulers.io())

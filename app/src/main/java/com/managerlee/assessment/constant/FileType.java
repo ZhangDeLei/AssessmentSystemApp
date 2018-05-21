@@ -8,7 +8,8 @@ public enum FileType {
     PHOTO("photo"), // 照片
     ARTICLE("article"),// 文章
     APP("app"),//应用APP
-    NEWICON("newicon");//新闻图标
+    NEWICON("newicon"),
+    TASK("task");//新闻图标
 
     private FileType(String type) {
         this.type = type;

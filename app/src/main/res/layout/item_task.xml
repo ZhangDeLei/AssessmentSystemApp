@@ -75,10 +75,11 @@
             android:orientation="vertical">
 
             <TextView
+                android:textColor="@{task.userComplated?@color/colorTitleText:@android:color/holo_green_dark}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:text="@{task.stageName}" />
+                android:text="@{task.userComplated?task.stageName:`已完成`}" />
 
             <TextView
                 android:layout_width="match_parent"

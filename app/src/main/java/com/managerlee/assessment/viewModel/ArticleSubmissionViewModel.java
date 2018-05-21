@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.managerlee.assessment.bean.ArticleLevelBean;
 import com.managerlee.assessment.bean.SubmissionBean;
+import com.managerlee.assessment.constant.FileType;
 import com.managerlee.assessment.dialog.FileCheckDialog;
 import com.managerlee.assessment.framework.control.DropDown;
 import com.managerlee.assessment.framework.control.bean.DropDownBean;
@@ -87,7 +88,7 @@ public class ArticleSubmissionViewModel implements FileCheckDialog.OnEventListen
      * 上传文件
      */
     private void updateFile() {
-        fileView.upload(file.get(), new CallBackListener<String>() {
+        fileView.upload(file.get(), FileType.ARTICLE.getType(), new CallBackListener<String>() {
             @Override
             public void onSuccess(String data) {
                 confirmSubmission(data);

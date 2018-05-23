@@ -2,7 +2,10 @@ package com.managerlee.assessment.viewModel;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.view.Gravity;
 
+import com.managerlee.assessment.business.update.UpdateService;
+import com.managerlee.assessment.constant.URLConstant;
 import com.managerlee.assessment.framework.base.BaseViewModel;
 import com.managerlee.assessment.framework.dialog.ConfirmDialog;
 import com.managerlee.assessment.framework.dialog.ProgressHelper;
@@ -22,6 +25,7 @@ import com.managerlee.assessment.model.impl.UpdateViewImpl;
 
 public class UpdateViewModel extends BaseViewModel {
     private IUpdateView updateView;
+    private ConfirmDialog dialog;
 
     public UpdateViewModel(Activity activity) {
         super(activity);
@@ -48,21 +52,7 @@ public class UpdateViewModel extends BaseViewModel {
                         activity.startActivity(new Intent(activity, LoginActivity.class));
                     }
                 } else {
-                    ConfirmDialog dialog = new ConfirmDialog(activity);
-                    dialog.setTitle("发现新版本");
-                    dialog.setContent(data.getComment());
-                    dialog.setListener(new ConfirmDialog.OnClickListener() {
-                        @Override
-                        public void onClose() {
-
-                        }
-
-                        @Override
-                        public void onConfirm() {
-
-                        }
-                    });
-                    dialog.show();
+                    showDialog(data);
                 }
             }
 
@@ -79,5 +69,45 @@ public class UpdateViewModel extends BaseViewModel {
                 ProgressHelper.init().close();
             }
         });
+    }
+
+    /**
+     * 显示更新弹框
+     *
+     * @param data
+     */
+    private void showDialog(final AppUpdateBean data) {
+        dialog = new ConfirmDialog(activity);
+        dialog.setTitle("发现新版本");
+        dialog.setContentGravity(Gravity.TOP | Gravity.LEFT);
+        dialog.setContent(data.getComment() + "\n版本号:" + data.getVersion());
+        dialog.setConfirmText("立即更新");
+        dialog.setContentScroll();
+        dialog.setListener(new ConfirmDialog.OnClickListener() {
+            @Override
+            public void onClose() {
+                dialog.dismiss();
+            }
+
+            @Override
+            public void onConfirm() {
+                startUpdate(data.getUrl());
+            }
+        });
+        dialog.show();
+    }
+
+    /**
+     * 启动下载
+     *
+     * @param downloadUrl
+     */
+    private void startUpdate(String downloadUrl) {
+        Intent it = new Intent(activity, UpdateService.class);
+        downloadUrl = downloadUrl.replace("\\", "//").replace("//", "/");
+        //下载地址
+        it.putExtra("apkUrl", URLConstant.BASE_URL + downloadUrl);
+        activity.startService(it);
+        dialog.dismiss();
     }
 }

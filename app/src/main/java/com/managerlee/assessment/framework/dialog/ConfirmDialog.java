@@ -1,6 +1,7 @@
 package com.managerlee.assessment.framework.dialog;
 
 import android.app.Activity;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -57,12 +58,24 @@ public class ConfirmDialog extends BaseDialog {
         });
     }
 
+    public void setContentGravity(int gravity) {
+        this.dialogTvContent.setGravity(gravity);
+    }
+
     public void setContent(String content) {
         this.dialogTvContent.setText(content);
     }
 
     public void setTitle(String title) {
         this.dialogTvTitle.setText(title);
+    }
+
+    public void setConfirmText(String text) {
+        this.dialogBtnConfirm.setText(text);
+    }
+
+    public void setContentScroll(){
+        this.dialogTvContent.setMovementMethod(ScrollingMovementMethod.getInstance());
     }
 
     private OnClickListener listener;
